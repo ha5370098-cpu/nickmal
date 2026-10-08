@@ -1,0 +1,1645 @@
+/* =========================================================
+   FILOCOSMOS — theme overlay
+   Diimpor SETELAH styles.css sehingga variabel & sentuhan
+   di bawah ini menimpa gaya asli tanpa merusaknya.
+   ========================================================= */
+
+/* ---------- PALET RUANG ANGKASA ---------- */
+:root {
+  --bg: #05030e;
+  --bg-2: #0a0618;
+  --card: #130d26;
+  --line: #2c2154;
+  --text: #e9e4ff;
+  --muted: #9d93c7;
+  --accent: #a78bfa;        /* violet nebula */
+  --accent-2: #22d3ee;      /* cyan ion */
+  --pixel: #8b5cf6;
+  --glow: rgba(167, 139, 250, 0.45);
+}
+
+body.light {
+  --bg: #f4f1ff;
+  --bg-2: #ffffff;
+  --card: #ffffff;
+  --line: #e4ddff;
+  --text: #171033;
+  --muted: #6a6190;
+  --accent: #7c3aed;
+  --accent-2: #0891b2;
+  --pixel: #a78bfa;
+  --glow: rgba(124, 58, 237, 0.25);
+}
+
+/* ---------- LATAR: bintang + nebula (statis di viewport) ---------- */
+body {
+  background:
+    radial-gradient(1.4px 1.4px at 12% 22%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(1.2px 1.2px at 34% 68%, rgba(255,255,255,.7),  transparent 60%),
+    radial-gradient(1.6px 1.6px at 58% 14%, rgba(190,230,255,.9),  transparent 60%),
+    radial-gradient(1.2px 1.2px at 72% 46%, rgba(255,255,255,.6),  transparent 60%),
+    radial-gradient(1.8px 1.8px at 88% 78%, rgba(230,210,255,.9),  transparent 60%),
+    radial-gradient(1.2px 1.2px at 8%  84%, rgba(255,255,255,.65), transparent 60%),
+    radial-gradient(1.4px 1.4px at 46% 92%, rgba(255,255,255,.7),  transparent 60%),
+    radial-gradient(1.2px 1.2px at 94% 30%, rgba(180,240,255,.8),  transparent 60%),
+    radial-gradient(1100px 700px at 12% -10%, rgba(124, 58, 237, 0.38), transparent 62%),
+    radial-gradient(900px 650px at 88% 8%,   rgba(34, 211, 238, 0.22), transparent 60%),
+    radial-gradient(1000px 800px at 70% 100%, rgba(236, 72, 153, 0.16), transparent 65%),
+    var(--bg);
+  background-attachment: fixed;
+  background-color: var(--bg);
+}
+body.light {
+  background:
+    radial-gradient(1.4px 1.4px at 12% 22%, rgba(124,58,237,.35), transparent 60%),
+    radial-gradient(1.2px 1.2px at 58% 14%, rgba(8,145,178,.3),   transparent 60%),
+    radial-gradient(1.6px 1.6px at 84% 70%, rgba(124,58,237,.28), transparent 60%),
+    radial-gradient(1100px 700px at 12% -10%, rgba(167, 139, 250, 0.35), transparent 65%),
+    radial-gradient(900px 650px at 88% 8%,   rgba(34, 211, 238, 0.22), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  background-color: var(--bg);
+}
+
+/* ---------- SCANLINE → LAPISAN GLOW RUANG ---------- */
+.scanlines {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(167, 139, 250, 0.035) 0px,
+      rgba(167, 139, 250, 0.035) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(600px 380px at 20% 30%, rgba(34, 211, 238, 0.10), transparent 70%),
+    radial-gradient(620px 420px at 80% 70%, rgba(167, 139, 250, 0.12), transparent 70%);
+  animation: filoDrift 26s ease-in-out infinite alternate;
+}
+@keyframes filoDrift {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0)  scale(1.08); }
+}
+
+/* ---------- NAV / LOGO ---------- */
+.logo {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--glow);
+  letter-spacing: 0.06em;
+}
+.nav {
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+.nav-links a:hover { text-shadow: 0 0 12px var(--glow); }
+
+/* ---------- TYPOGRAFI & AKSEN ---------- */
+.tag { text-shadow: 0 0 14px rgba(34, 211, 238, 0.5); }
+.accent { color: var(--accent); text-shadow: 0 0 18px var(--glow); }
+.cursor { color: var(--accent-2); }
+.typewriter-wrap { text-shadow: 0 0 12px rgba(34, 211, 238, 0.45); }
+
+::selection { background: var(--accent); color: #0a0518; }
+
+/* ---------- TOMBOL ---------- */
+.btn-primary {
+  color: #0a0518;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 28px var(--glow);
+}
+.btn-primary:hover { box-shadow: 0 12px 36px var(--glow); }
+.btn-ghost:hover { border-color: var(--accent-2); color: var(--accent-2); }
+
+/* ---------- KARTU / PANEL ---------- */
+.pixel-card,
+.about-facts,
+.skill-card,
+.stat,
+.mc-panel,
+.contact-card,
+.quote-box {
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.skill-card:hover,
+a.contact-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 16px 44px var(--glow);
+}
+.fact .v { text-shadow: 0 0 12px var(--glow); }
+
+/* blok melayang = puing antariksa */
+.float-block {
+  box-shadow: 0 0 22px var(--glow);
+  border-radius: 8px;
+}
+.b1 { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+.b2 { background: linear-gradient(135deg, var(--accent-2), var(--accent)); }
+.b3 { background: #f472b6; box-shadow: 0 0 18px rgba(244, 114, 182, 0.7); }
+
+/* ---------- GRAFIK / GARIS ---------- */
+.progress-bar {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  animation: filoFlow 3s linear infinite;
+  box-shadow: 0 0 14px var(--glow);
+}
+@keyframes filoFlow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+.timeline::before {
+  background: linear-gradient(var(--accent), var(--accent-2), var(--accent));
+  background-size: 100% 200%;
+  animation: filoFlowY 6s linear infinite;
+}
+@keyframes filoFlowY {
+  from { background-position: 50% 0%; }
+  to   { background-position: 50% 200%; }
+}
+.tl-dot {
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.22), 0 0 16px var(--glow);
+}
+
+.bar span { box-shadow: 0 0 14px var(--glow); }
+
+/* ---------- STATISTIK / MC ---------- */
+.stat-num { text-shadow: 0 0 20px var(--glow); }
+.mc-name { text-shadow: 0 0 22px var(--glow); }
+.mc-avatar { box-shadow: inset -10px -10px 0 rgba(0,0,0,.22), 0 0 34px var(--glow); }
+.mc-stat-v.online { text-shadow: 0 0 12px var(--glow); }
+
+/* ---------- FUN FACTS & QUOTE ---------- */
+.fun-card .fun-front {
+  background: linear-gradient(160deg, var(--card), color-mix(in srgb, var(--accent) 10%, var(--card)));
+}
+.fun-card .fun-back {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0518;
+  box-shadow: 0 14px 40px var(--glow);
+}
+.quote-box {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+  border: 1px dashed transparent;
+}
+.quote-mark { color: var(--accent-2); text-shadow: 0 0 16px var(--glow); }
+
+/* ---------- CONTACT / FOOTER ---------- */
+.c-icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0518;
+  box-shadow: 0 0 18px var(--glow);
+}
+.footer { background: color-mix(in srgb, var(--bg-2) 70%, transparent); }
+
+/* ---------- PENCAHAYAAN SAAT REVEAL ---------- */
+.reveal.visible { text-shadow: 0 0 24px rgba(167, 139, 250, 0.12); }
+
+/* =========================================================
+   LATAR RUANG ANGKASA INTERAKTIF
+   ========================================================= */
+#spaceCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.space-planets {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.space-planet {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: auto;          /* bisa disentuh meski wadahnya none */
+  cursor: crosshair;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+.space-planet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset -14px -10px 28px rgba(0, 0, 0, 0.55), 0 0 44px var(--glow, rgba(255, 255, 255, 0.5));
+  transition: box-shadow 0.35s, filter 0.35s;
+  animation: spFloat 11s ease-in-out infinite;
+}
+.space-planet:hover::before,
+.space-planet.near::before,
+.space-planet.hit::before {
+  filter: brightness(1.4) saturate(1.3);
+  box-shadow: inset -14px -10px 28px rgba(0, 0, 0, 0.35), 0 0 80px var(--glow, rgba(255, 255, 255, 0.85));
+}
+.space-planet.hit::before { animation: fxPop 0.6s cubic-bezier(.2, 1.8, .4, 1); }
+@keyframes fxPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.25); filter: brightness(1.9); }
+  100% { transform: scale(1); }
+}
+.space-planet.has-ring::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 215%;
+  height: 54%;
+  border: 6px solid rgba(255, 220, 165, 0.55);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  box-shadow: 0 0 22px rgba(255, 210, 140, 0.45);
+  pointer-events: none;
+}
+.space-planet:hover.has-ring::after,
+.space-planet.near.has-ring::after,
+.space-planet.hit.has-ring::after {
+  border-color: rgba(255, 240, 205, 0.95);
+  box-shadow: 0 0 40px rgba(255, 220, 150, 0.9);
+}
+
+@keyframes spFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+
+/* ukuran & warna seluruh planet tata surya (posisi = gerak dari space.js) */
+.space-planet { top: 0; left: 0; }
+
+.sp-name {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%);
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: rgba(233, 228, 255, 0.75);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: color 0.3s, text-shadow 0.3s, opacity 0.3s;
+  opacity: 0.85;
+}
+.space-planet.near .sp-name,
+.space-planet.hit .sp-name {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: 0 0 16px rgba(34, 211, 238, 0.95);
+}
+.space-planet.danger::before {
+  box-shadow: inset -14px -10px 28px rgba(0, 0, 0, 0.55), 0 0 62px rgba(255, 84, 62, 0.95);
+}
+.space-planet.danger .sp-name { color: #ff9a8a; text-shadow: 0 0 14px rgba(255, 90, 70, 0.95); }
+
+/* ===== PLANET TATA SURYA REALISTIS (warna, tekstur, bintik, cahaya) ===== */
+.sp-mercury { width: 36px; height: 36px; }
+.sp-mercury::before {
+  background:
+    radial-gradient(circle at 62% 36%, rgba(0,0,0,.34) 0 8%, rgba(255,255,255,.22) 9% 13%, transparent 14%),
+    radial-gradient(circle at 33% 63%, rgba(0,0,0,.3) 0 7%, rgba(255,255,255,.2) 8% 12%, transparent 13%),
+    radial-gradient(circle at 72% 68%, rgba(0,0,0,.26) 0 6%, rgba(255,255,255,.16) 7% 10%, transparent 11%),
+    radial-gradient(circle at 44% 22%, rgba(255,255,255,.3) 0 5%, rgba(0,0,0,.18) 6% 9%, transparent 10%),
+    radial-gradient(circle at 20% 44%, rgba(0,0,0,.22) 0 5%, transparent 6%),
+    radial-gradient(circle at 34% 28%, #e9ded0, #a3968a 52%, #37302a 100%);
+}
+
+.sp-venus { width: 54px; height: 54px; }
+.sp-venus::before {
+  background:
+    repeating-linear-gradient(168deg, rgba(255,255,255,.22) 0 4px, rgba(255,196,90,.2) 4px 9px, rgba(255,255,255,.08) 9px 15px),
+    radial-gradient(ellipse at 62% 44%, rgba(255,255,255,.32) 0 14%, transparent 46%),
+    radial-gradient(ellipse at 28% 66%, rgba(190,130,40,.4) 0 16%, transparent 48%),
+    radial-gradient(circle at 32% 28%, #fff6dd, #eec578 50%, #8d621a 100%);
+}
+
+.sp-earth { width: 60px; height: 60px; }
+.sp-earth::before {
+  background:
+    radial-gradient(ellipse at 50% 3%, rgba(255,255,255,.9) 0 7%, transparent 11%),
+    radial-gradient(ellipse at 50% 97%, rgba(255,255,255,.85) 0 6%, transparent 10%),
+    radial-gradient(ellipse at 66% 30%, rgba(255,255,255,.7) 0 7%, transparent 22%),
+    radial-gradient(ellipse at 32% 66%, rgba(255,255,255,.55) 0 6%, transparent 20%),
+    radial-gradient(ellipse at 38% 42%, #3fae5f 0 13%, transparent 15%),
+    radial-gradient(ellipse at 62% 62%, #56c273 0 12%, transparent 14%),
+    radial-gradient(ellipse at 74% 40%, #2f9a55 0 7%, transparent 9%),
+    radial-gradient(ellipse at 26% 34%, #3aa257 0 8%, transparent 10%),
+    radial-gradient(circle at 32% 28%, #a8e6ff, #2f8fd6 52%, #0a3165 100%);
+}
+
+.sp-mars { width: 48px; height: 48px; }
+.sp-mars::before {
+  background:
+    radial-gradient(ellipse at 50% 2%, rgba(255,255,255,.9) 0 6%, transparent 10%),
+    radial-gradient(ellipse at 50% 98%, rgba(255,255,255,.8) 0 5%, transparent 9%),
+    radial-gradient(ellipse at 64% 54%, rgba(90,30,14,.55) 0 12%, transparent 26%),
+    radial-gradient(ellipse at 28% 58%, rgba(120,45,20,.5) 0 10%, transparent 24%),
+    radial-gradient(circle at 50% 44%, rgba(0,0,0,.18) 0 3%, transparent 4%),
+    radial-gradient(circle at 34% 30%, #ffbb8c, #d4613a 52%, #571d0c 100%);
+}
+
+.sp-jupiter { width: 122px; height: 122px; }
+.sp-jupiter::before {
+  background:
+    radial-gradient(ellipse at 67% 63%, rgba(190,74,42,.95) 0 5%, rgba(190,74,42,.5) 6% 8%, transparent 9%),
+    radial-gradient(ellipse at 36% 40%, rgba(255,255,255,.45) 0 6%, transparent 10%),
+    repeating-linear-gradient(178deg,
+      rgba(255,238,214,.5) 0 7px,
+      rgba(196,140,88,.45) 7px 14px,
+      rgba(139,88,50,.5) 14px 21px,
+      rgba(247,221,186,.45) 21px 27px,
+      rgba(166,110,64,.45) 27px 35px),
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.34), transparent 52%),
+    radial-gradient(circle at 30% 28%, #ffeacf, #d99a54 55%, #62390f 100%);
+}
+
+.sp-saturn { width: 104px; height: 104px; }
+.sp-saturn::before {
+  background:
+    repeating-linear-gradient(176deg,
+      rgba(255,246,222,.5) 0 6px,
+      rgba(214,169,96,.42) 6px 13px,
+      rgba(255,238,204,.35) 13px 20px,
+      rgba(186,140,66,.4) 20px 27px),
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.35), transparent 50%),
+    radial-gradient(circle at 30% 28%, #fff5da, #e3ba6c 55%, #6f5018 100%);
+}
+.sp-saturn.has-ring::after { animation: ringSpin 44s linear infinite; }
+@keyframes ringSpin {
+  from { transform: translate(-50%, -50%) rotate(-18deg); }
+  to   { transform: translate(-50%, -50%) rotate(342deg); }
+}
+
+.sp-uranus { width: 76px; height: 76px; }
+.sp-uranus::before {
+  background:
+    repeating-linear-gradient(174deg, rgba(255,255,255,.16) 0 5px, rgba(120,220,230,.16) 5px 12px),
+    radial-gradient(ellipse at 66% 60%, rgba(20,90,110,.4) 0 14%, transparent 42%),
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.4), transparent 48%),
+    radial-gradient(circle at 30% 28%, #f0ffff, #7ed6df 52%, #1c6470 100%);
+}
+
+.sp-neptune { width: 72px; height: 72px; }
+.sp-neptune::before {
+  background:
+    radial-gradient(ellipse at 62% 58%, rgba(8,26,72,.85) 0 8%, transparent 14%),
+    radial-gradient(ellipse at 40% 36%, rgba(255,255,255,.55) 0 5%, transparent 12%),
+    radial-gradient(ellipse at 30% 70%, rgba(255,255,255,.4) 0 4%, transparent 11%),
+    repeating-linear-gradient(172deg, rgba(255,255,255,.12) 0 5px, rgba(60,110,220,.18) 5px 13px),
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.36), transparent 48%),
+    radial-gradient(circle at 30% 28%, #d8ecff, #3b7fe0 52%, #0b2468 100%);
+}
+
+/* cincin Saturnus: beberapa lapis cincin ( Cassini division ) di belakang bola */
+.space-planet.has-ring::after {
+  border: none;
+  background:
+    radial-gradient(closest-side ellipse at 50% 50%, transparent 76%, rgba(255,231,186,.8) 77% 87%, transparent 88%),
+    radial-gradient(closest-side ellipse at 50% 50%, transparent 56%, rgba(240,210,150,.6) 57% 66%, transparent 67%),
+    radial-gradient(closest-side ellipse at 50% 50%, transparent 36%, rgba(255,240,206,.75) 37% 46%, transparent 47%);
+  filter: drop-shadow(0 0 14px rgba(255, 214, 150, 0.5));
+  z-index: -1;
+}
+.space-planet.has-ring::before { z-index: 1; }
+
+/* ---------- PLANET DI HERO ---------- */
+.hero-planet {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #ffe3bc, #f0a44e 55%, #8a4a14 100%);
+  box-shadow: inset -16px -12px 32px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 170, 90, 0.55);
+  animation: spFloat 7s ease-in-out infinite;
+}
+.hero-planet.has-ring::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 175%;
+  height: 48%;
+  border: 7px solid rgba(255, 224, 170, 0.7);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  box-shadow: 0 0 26px rgba(255, 210, 140, 0.55);
+  animation: ringSpinHero 26s linear infinite;
+}
+@keyframes ringSpinHero {
+  from { transform: translate(-50%, -50%) rotate(-20deg); }
+  to   { transform: translate(-50%, -50%) rotate(340deg); }
+}
+
+/* ---------- LOGO SATURNUS DI PANEL SALURAN ---------- */
+.saturn-planet {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #fff1cd, #e5b45c 55%, #8a6420 100%);
+  box-shadow: inset -10px -8px 20px rgba(0, 0, 0, 0.45), 0 0 34px rgba(255, 215, 140, 0.6);
+  animation: spFloat 6s ease-in-out infinite;
+}
+.saturn-planet::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 205%;
+  height: 52%;
+  border: 5px solid rgba(255, 224, 170, 0.75);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  box-shadow: 0 0 20px rgba(255, 210, 140, 0.55);
+}
+
+/* ---------- EFEK INTERAKSI: RIPPLE & SPARK ---------- */
+.fx-ripple {
+  position: fixed;
+  z-index: 60;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border: 2px solid rgba(167, 139, 250, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.65);
+  animation: fxRipple 0.8s ease-out forwards;
+}
+@keyframes fxRipple {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(9); }
+}
+
+.fx-spark {
+  position: fixed;
+  z-index: 60;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: var(--c, #a78bfa);
+  box-shadow: 0 0 10px var(--c, #a78bfa);
+  animation: fxSpark 0.9s ease-out forwards;
+}
+@keyframes fxSpark {
+  from { opacity: 1; transform: translate(0, 0) scale(1); }
+  to   { opacity: 0; transform: translate(var(--dx, 0), var(--dy, -30px)) scale(0.2); }
+}
+
+/* ---------- SUB-JUDUL & LENCANA ---------- */
+.sub-head {
+  margin: 2.4rem 0 1.2rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(.7rem, 2vw, .95rem);
+  color: var(--accent-2);
+  letter-spacing: .05em;
+  text-shadow: 0 0 16px rgba(34, 211, 238, 0.45);
+}
+.ai-badge {
+  font-family: "Press Start 2P", monospace;
+  font-size: .55em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0518;
+  padding: .35em .6em;
+  border-radius: 6px;
+  margin-left: .6rem;
+  vertical-align: middle;
+  box-shadow: 0 0 18px var(--glow);
+  animation: aiPulse 2.4s ease-in-out infinite;
+}
+@keyframes aiPulse {
+  0%, 100% { box-shadow: 0 0 10px var(--glow); filter: brightness(1); }
+  50%      { box-shadow: 0 0 30px var(--glow); filter: brightness(1.35); }
+}
+
+/* ---------- LOGO "CARI DI GOOGLE" DI KARTU ILMIAH ---------- */
+.fun-front .search-logo {
+  display: block;
+  font-size: 2.1rem;
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.6));
+  animation: searchWob 3s ease-in-out infinite;
+}
+.fun-front .search-text {
+  display: block;
+  margin-top: .5rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: .55rem;
+  letter-spacing: .06em;
+  color: var(--accent-2);
+}
+@keyframes searchWob {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50%      { transform: rotate(8deg) translateY(-6px); }
+}
+.fun-card:hover .search-logo { animation-play-state: paused; filter: drop-shadow(0 0 18px rgba(167, 139, 250, 0.9)); }
+
+/* ---------- PANEL TANYA JAWAB (AI) ---------- */
+.qa-panel {
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(135deg, var(--accent), var(--accent-2), #f472b6) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 40px color-mix(in srgb, var(--accent) 22%, transparent);
+  overflow: hidden;
+  animation: qaGlow 5s ease-in-out infinite;
+}
+@keyframes qaGlow {
+  0%, 100% { box-shadow: 0 18px 50px rgba(0,0,0,.45), 0 0 26px color-mix(in srgb, var(--accent) 18%, transparent); }
+  50%      { box-shadow: 0 18px 50px rgba(0,0,0,.45), 0 0 60px color-mix(in srgb, var(--accent-2) 32%, transparent); }
+}
+.qa-panel::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(400px 260px at 20% 20%, rgba(34, 211, 238, 0.12), transparent 70%),
+              radial-gradient(420px 300px at 80% 80%, rgba(167, 139, 250, 0.14), transparent 70%);
+  animation: filoDrift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.qa-log {
+  position: relative;
+  max-height: 340px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: .3rem .3rem .3rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 60%, transparent) transparent;
+}
+.qa-log::-webkit-scrollbar { width: 6px; }
+.qa-log::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent) 60%, transparent); border-radius: 99px; }
+
+.qa-msg {
+  position: relative;
+  max-width: 88%;
+  padding: .8rem 1rem;
+  border-radius: 14px;
+  font-size: .93rem;
+  line-height: 1.6;
+  animation: msgIn 0.45s cubic-bezier(.22, 1, .36, 1) both;
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(14px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.qa-msg.bot {
+  align-self: flex-start;
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-2));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-left: 3px solid var(--accent);
+}
+.qa-msg.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 30%, var(--bg-2)), color-mix(in srgb, var(--accent) 30%, var(--bg-2)));
+  border: 1px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
+  text-align: right;
+}
+.qa-who {
+  display: block;
+  font-family: "Press Start 2P", monospace;
+  font-size: .52rem;
+  letter-spacing: .08em;
+  color: var(--accent-2);
+  margin-bottom: .45rem;
+}
+.qa-msg.user .qa-who { color: var(--accent); }
+
+/* indikator mengetik */
+.qa-typing { display: inline-flex; gap: 5px; align-items: center; padding: .2rem .1rem; }
+.qa-typing i {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-2);
+  animation: qaDot 1.1s ease-in-out infinite;
+}
+.qa-typing i:nth-child(2) { animation-delay: .18s; }
+.qa-typing i:nth-child(3) { animation-delay: .36s; }
+@keyframes qaDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: .35; }
+  30%           { transform: translateY(-7px); opacity: 1; }
+}
+
+/* chips pertanyaan */
+.qa-chips {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  max-height: 168px;
+  overflow-y: auto;
+  padding: .9rem .2rem .3rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent-2) 55%, transparent) transparent;
+}
+.qa-chips::-webkit-scrollbar { width: 6px; }
+.qa-chips::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent-2) 55%, transparent); border-radius: 99px; }
+.qa-chip {
+  border: 1px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
+  background: color-mix(in srgb, var(--accent-2) 10%, transparent);
+  color: var(--text);
+  font-family: inherit;
+  font-size: .78rem;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s;
+  animation: chipIn .5s ease both;
+}
+.qa-chip:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: color-mix(in srgb, var(--accent-2) 24%, transparent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent-2) 40%, transparent);
+}
+@keyframes chipIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* form tanya */
+.qa-form {
+  position: relative;
+  display: flex;
+  gap: .7rem;
+  margin-top: 1rem;
+}
+.qa-form input {
+  flex: 1;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+.qa-form input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 25%, transparent);
+}
+.qa-form .btn { border: none; cursor: pointer; font-family: inherit; }
+
+@media (max-width: 560px) {
+  .qa-msg { max-width: 96%; }
+  .qa-form { flex-direction: column; }
+}
+
+/* ---------- HORMAT prefers-reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .space-planet::before,
+  .hero-planet,
+  .hero-planet.has-ring::after,
+  .saturn-planet,
+  .space-planet.has-ring::after,
+  .scanlines::before,
+  .progress-bar,
+  .timeline::before,
+  .qa-panel,
+  .qa-panel::before,
+  .fun-front .search-logo,
+  .ai-badge,
+  .qa-chip,
+  .qa-msg { animation: none !important; }
+}
+
+/* =========================================================
+   INTERAKSI PLANET: GESER (DRAG) + LEDAKAN 10 KETUKAN
+   ========================================================= */
+.space-planet { cursor: grab; }
+.space-planet.dragging {
+  cursor: grabbing;
+  filter: brightness(1.25) saturate(1.2);
+}
+.space-planet.dragging::before { animation-play-state: paused; }
+.space-planet.exploded {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .12s linear;
+}
+.space-planet.shake { animation: planetShake .5s ease-in-out infinite; }
+@keyframes planetShake {
+  0%, 100% { transform: translate3d(var(--tx, 0), var(--ty, 0), 0); }
+  25%      { transform: translate3d(calc(var(--tx, 0px) + 3px), calc(var(--ty, 0px) - 2px), 0); }
+  75%      { transform: translate3d(calc(var(--tx, 0px) - 3px), calc(var(--ty, 0px) + 2px), 0); }
+}
+.space-planet .tap-meter {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 22px);
+  transform: translateX(-50%);
+  width: 62px;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .25s;
+  pointer-events: none;
+}
+.space-planet.tapped .tap-meter { opacity: 1; }
+.tap-meter i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ffd166, #ff5d73);
+  box-shadow: 0 0 12px rgba(255, 93, 115, 0.9);
+  transition: width .3s ease;
+}
+.tap-meter b {
+  position: absolute;
+  inset: 0;
+  font-size: 6px;
+  line-height: 6px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.boom-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--fx, 50%) var(--fy, 50%),
+    rgba(255, 255, 255, .95) 0%, rgba(255, 214, 120, .6) 22%, rgba(255, 120, 60, .25) 42%, transparent 68%);
+  animation: flashOut .55s ease-out forwards;
+}
+@keyframes flashOut { from { opacity: 1; } to { opacity: 0; } }
+
+.boom-ring {
+  position: fixed;
+  z-index: 91;
+  pointer-events: none;
+  border: 3px solid rgba(255, 226, 170, .95);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  box-shadow: 0 0 40px rgba(255, 170, 90, .8), inset 0 0 30px rgba(255, 210, 140, .7);
+  animation: ringOut .95s cubic-bezier(.15, .7, .3, 1) forwards;
+}
+@keyframes ringOut {
+  from { transform: scale(.25); opacity: 1; }
+  to   { transform: scale(4.6); opacity: 0; }
+}
+
+.boom-frag {
+  position: fixed;
+  z-index: 92;
+  pointer-events: none;
+  border-radius: 60% 40% 55% 45%;
+  box-shadow: 0 0 16px rgba(255, 170, 100, .55);
+  animation: fragFly var(--dur, 1.5s) cubic-bezier(.12, .68, .3, 1) forwards;
+}
+@keyframes fragFly {
+  0%   { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; }
+  70%  { opacity: .85; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(.12); opacity: 0; }
+}
+
+.boom-spark {
+  position: fixed;
+  z-index: 93;
+  pointer-events: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px 3px rgba(255, 230, 170, .95);
+  animation: sparkOut .9s ease-out forwards;
+}
+@keyframes sparkOut {
+  from { transform: translate(0, 0) scale(1); opacity: 1; }
+  to   { transform: translate(var(--dx), var(--dy)) scale(.2); opacity: 0; }
+}
+
+.boom-note {
+  position: fixed;
+  z-index: 94;
+  left: 50%;
+  top: 16%;
+  transform: translateX(-50%);
+  padding: .7rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(20, 8, 4, .82);
+  border: 1px solid rgba(255, 150, 90, .7);
+  color: #ffd9a8;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(.55rem, 1.6vw, .72rem);
+  line-height: 1.7;
+  text-align: center;
+  box-shadow: 0 0 34px rgba(255, 120, 60, .55);
+  pointer-events: none;
+  animation: noteIn .45s cubic-bezier(.22, 1, .36, 1) both;
+}
+@keyframes noteIn {
+  from { opacity: 0; transform: translate(-50%, -24px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* =========================================================
+   PETUNJUK SCROLL
+   ========================================================= */
+.scroll-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .55rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(10, 6, 26, .8);
+  border: 1px solid rgba(167, 139, 250, .55);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+  font-size: .78rem;
+  letter-spacing: .02em;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .5), 0 0 26px rgba(167, 139, 250, .35);
+  transition: opacity .45s, transform .45s;
+  pointer-events: none;
+}
+.scroll-hint.hide { opacity: 0; transform: translate(-50%, 34px); }
+.sh-text::before { content: "👇 "; }
+.sh-arrow {
+  color: var(--accent-2);
+  animation: arrowDrop 1.5s ease-in-out infinite;
+}
+@keyframes arrowDrop {
+  0%, 100% { transform: translateY(-4px); opacity: .55; }
+  50%      { transform: translateY(5px); opacity: 1; }
+}
+
+/* =========================================================
+   NAV: TOMBOL CARI + SCROLL MELINTANG
+   ========================================================= */
+.nav-links {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 62vw;
+  padding-bottom: 2px;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { white-space: nowrap; font-size: clamp(.72rem, 1.05vw, .9rem); }
+.nav-search {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .35rem .6rem;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  flex: none;
+}
+.nav-search:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-2) 55%, transparent);
+}
+
+/* layar sempit: taskbar nav tetap ada (digeser mendatar) agar 17 bagian
+   mudah dijangkau — versi ringkas dari aturan bawaan yang menyembunyikannya */
+@media (max-width: 900px) {
+  .nav-links {
+    display: flex;
+    max-width: 48vw;
+    gap: .75rem;
+  }
+  .nav-links a { font-size: .7rem; letter-spacing: .02em; }
+  .nav-search { font-size: .82rem; padding: .3rem .5rem; }
+}
+
+/* =========================================================
+   KARTU FAKTA ILMIAH: ILUSTRASI SVG
+   ========================================================= */
+.fun-card { height: 226px; }
+.fun-card .fun-front {
+  font-size: 1rem;
+  gap: .45rem;
+  align-content: center;
+}
+.fun-img {
+  width: 100%;
+  height: 148px;
+  display: block;
+  border-radius: 10px;
+  background: radial-gradient(circle at 50% 35%, rgba(34, 24, 72, .95), rgba(8, 5, 22, .98));
+  border: 1px solid rgba(167, 139, 250, .3);
+  box-shadow: inset 0 0 30px rgba(90, 60, 190, .35);
+}
+.fun-card .fun-front .search-text {
+  font-size: .58rem;
+  margin-top: .3rem;
+  animation: searchWob 3s ease-in-out infinite;
+}
+.fun-card:hover .fun-img { border-color: rgba(34, 211, 238, .7); }
+.fun-card .fun-back { font-size: .9rem; line-height: 1.6; }
+
+/* =========================================================
+   TABEL: BAHASA PEMROGRAMAN & APLIKASI
+   ========================================================= */
+.table-wrap {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: auto;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .35);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent) transparent;
+}
+.table-wrap::-webkit-scrollbar { height: 8px; }
+.table-wrap::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 99px; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+  font-size: .88rem;
+}
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  text-align: left;
+  padding: .9rem 1rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: .58rem;
+  letter-spacing: .06em;
+  color: #0a0518;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+.data-table td {
+  padding: .78rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.data-table td:first-child { color: var(--text); white-space: nowrap; }
+.data-table td:nth-child(3) { color: var(--accent-2); font-variant-numeric: tabular-nums; }
+.data-table tbody tr { transition: background .2s, transform .2s; }
+.data-table tbody tr:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.data-table tbody tr.hit-row { animation: rowHit 1.2s ease both; }
+@keyframes rowHit {
+  0%   { background: color-mix(in srgb, var(--accent-2) 45%, transparent); }
+  100% { background: transparent; }
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+
+/* =========================================================
+   PANEL PENCARIAN + REKOMENDASI
+   ========================================================= */
+.search-panel {
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(135deg, var(--accent-2), var(--accent), #f472b6) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.4vw, 1.7rem);
+  box-shadow: 0 20px 54px rgba(0, 0, 0, .45), 0 0 44px color-mix(in srgb, var(--accent-2) 20%, transparent);
+  animation: qaGlow 6s ease-in-out infinite;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: .35rem .35rem .35rem 1rem;
+  transition: border-color .25s, box-shadow .25s;
+}
+.search-bar:focus-within {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 22%, transparent);
+}
+.search-ico { font-size: 1.05rem; opacity: .85; }
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: clamp(.95rem, 2vw, 1.08rem);
+  padding: .75rem 0;
+}
+.search-kbd {
+  font-family: "Press Start 2P", monospace;
+  font-size: .5rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .45rem .55rem;
+  background: var(--card);
+}
+.search-stats {
+  margin: .9rem 0 1.2rem;
+  font-size: .84rem;
+  color: var(--muted);
+}
+.search-stats strong { color: var(--accent-2); }
+.search-block { margin-top: 1.1rem; }
+.search-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: .58rem;
+  letter-spacing: .07em;
+  color: var(--accent);
+  margin-bottom: .7rem;
+}
+.search-reco { display: flex; flex-wrap: wrap; gap: .5rem; }
+.reco-chip {
+  border: 1px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--text);
+  font-family: inherit;
+  font-size: .78rem;
+  padding: .45rem .85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.reco-chip:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.search-results { display: flex; flex-direction: column; gap: .7rem; }
+.search-empty {
+  font-size: .88rem;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 1.1rem;
+}
+.search-item {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  text-align: left;
+  width: 100%;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .85rem 1rem;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+  animation: msgIn .4s cubic-bezier(.22, 1, .36, 1) both;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.search-item:hover {
+  border-color: var(--accent-2);
+  transform: translateX(6px);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--accent-2) 25%, transparent);
+}
+.si-top { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
+.si-title { font-weight: 700; font-size: .95rem; }
+.si-tag {
+  font-family: "Press Start 2P", monospace;
+  font-size: .48rem;
+  letter-spacing: .06em;
+  padding: .32rem .48rem;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0518;
+}
+.si-tag.tag-hal { background: linear-gradient(135deg, #f472b6, var(--accent)); color: #1a0620; }
+.si-tag.tag-baris { background: linear-gradient(135deg, var(--accent-2), #34d399); color: #05131a; }
+.si-snippet { font-size: .84rem; color: var(--muted); line-height: 1.6; }
+.si-snippet mark, .si-title mark {
+  background: color-mix(in srgb, var(--accent-2) 40%, transparent);
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.search-more {
+  margin-top: .8rem;
+  font-size: .8rem;
+  color: var(--muted);
+  text-align: center;
+}
+@media (max-width: 620px) {
+  .search-kbd { display: none; }
+  .data-table { min-width: 560px; }
+}
+
+/* =========================================================
+   HORMAT prefers-reduced-motion (bagian baru)
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint,
+  .sh-arrow,
+  .boom-flash,
+  .boom-ring,
+  .boom-frag,
+  .boom-spark,
+  .boom-note,
+  .space-planet.shake,
+  .search-panel,
+  .search-item,
+  .fun-card .fun-front .search-text,
+  .reco-chip,
+  .data-table tbody tr.hit-row { animation: none !important; }
+}
+
+/* =========================================================
+   ★ GLASSMORPHISM ★
+   Seluruh panel, kartu, nav, tabel, dan input memakai kaca
+   buram (backdrop-filter) sehingga bintang & planet di latar
+   terlihat samar menembus elemen — gaya "frosted glass".
+   ========================================================= */
+
+:root {
+  --glass-blur: 16px;
+  --glass-1: rgba(255, 255, 255, 0.06);   /* lapisan kaca tipis */
+  --glass-2: rgba(255, 255, 255, 0.14);   /* lapisan kaca terang */
+  --glass-line: rgba(255, 255, 255, 0.18); /* tepi kaca */
+  --glass-sheen: rgba(255, 255, 255, 0.30);
+  --glass-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+  --glass-tint: color-mix(in srgb, var(--card) 34%, transparent);
+}
+body.light {
+  --glass-blur: 18px;
+  --glass-1: rgba(255, 255, 255, 0.42);
+  --glass-2: rgba(255, 255, 255, 0.66);
+  --glass-line: rgba(255, 255, 255, 0.90);
+  --glass-sheen: rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 22px 50px rgba(86, 70, 160, 0.18);
+  --glass-tint: rgba(255, 255, 255, 0.44);
+}
+
+/* ---------- 1. LEMBAR KACA PER BAGIAN ---------- */
+section.section {
+  position: relative;
+  background-color: color-mix(in srgb, var(--bg) 42%, transparent);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.02) 35%,
+    rgba(255, 255, 255, 0.03) 70%,
+    rgba(255, 255, 255, 0.08)
+  );
+  backdrop-filter: blur(5px) saturate(140%);
+  -webkit-backdrop-filter: blur(5px) saturate(140%);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+body.light section.section {
+  background-color: rgba(255, 255, 255, 0.40);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.30) 40%,
+    rgba(255, 255, 255, 0.55)
+  );
+  border-top-color: rgba(124, 58, 237, 0.14);
+}
+.section .about-text p,
+.section-hint,
+.sub-head,
+.contact-lead {
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+}
+body.light .section .about-text p,
+body.light .section-hint,
+body.light .sub-head,
+body.light .contact-lead { text-shadow: 0 1px 10px rgba(255, 255, 255, 0.7); }
+
+/* ---------- 2. NAV / TASKBAR KACA ---------- */
+.nav {
+  background-color: color-mix(in srgb, var(--bg) 52%, transparent);
+  background-image: linear-gradient(180deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border-bottom: 1px solid var(--glass-line);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+}
+body.light .nav {
+  background-color: rgba(255, 255, 255, 0.55);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
+}
+.nav-links a {
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background .25s, border-color .25s, color .25s, box-shadow .25s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--glass-2);
+  border-color: var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.nav-search,
+.theme-toggle {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  border-color: var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- 3. TOMBOL KACA ---------- */
+.btn-primary {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  box-shadow: 0 14px 34px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+.btn-ghost {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-color: var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+.c-icon {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 8px 20px var(--glow);
+  backdrop-filter: blur(8px);
+}
+
+/* ---------- 4. KARTU / PANEL KACA ---------- */
+.pixel-card,
+.about-facts,
+.skill-card,
+.stat,
+.mc-panel,
+.contact-card,
+.quote-box,
+.tl-item,
+.table-wrap,
+.fun-card .fun-front,
+.fun-card .fun-back {
+  background-color: var(--glass-tint);
+  background-image: linear-gradient(150deg, var(--glass-2), var(--glass-1) 45%, rgba(255, 255, 255, 0.035));
+  backdrop-filter: blur(var(--glass-blur)) saturate(175%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(175%);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.30),
+              inset 0 -18px 40px rgba(255, 255, 255, 0.03);
+}
+body.light .pixel-card,
+body.light .about-facts,
+body.light .skill-card,
+body.light .stat,
+body.light .mc-panel,
+body.light .contact-card,
+body.light .quote-box,
+body.light .tl-item,
+body.light .table-wrap,
+body.light .fun-card .fun-front,
+body.light .fun-card .fun-back {
+  background-image: linear-gradient(150deg, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.48));
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+.pixel-card { border-radius: 22px; }
+
+/* kilau permukaan kaca di kartu */
+.pixel-card,
+.skill-card,
+.stat,
+.mc-panel,
+.contact-card,
+.quote-box {
+  position: relative;
+  overflow: hidden;
+}
+.pixel-card::after,
+.skill-card::after,
+.stat::after,
+.mc-panel::after,
+.contact-card::after,
+.quote-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.20), transparent 34%, transparent 70%, rgba(255, 255, 255, 0.07));
+  opacity: .7;
+  transition: opacity .35s ease;
+}
+.stat { position: relative; }
+.pixel-card::before, .skill-card::before, .stat::before,
+.mc-panel::before, .contact-card::before, .quote-box::before {
+  z-index: 0;
+}
+.pixel-card > *, .skill-card > *, .stat > *,
+.mc-panel > *, .contact-card > *, .quote-box > * { position: relative; z-index: 1; }
+
+.skill-card:hover,
+a.contact-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 70%, white);
+  box-shadow: 0 26px 60px var(--glow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transform: translateY(-7px) scale(1.015);
+}
+.skill-card:hover::after,
+.contact-card:hover::after,
+.quote-box::after { opacity: 1; }
+
+/* ---------- 5. FAKTA / STATISTIK / PROGRES ---------- */
+.fact {
+  background: var(--glass-1);
+  border: 1px solid var(--glass-line);
+  border-radius: 12px;
+  padding: .55rem .75rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.bar,
+.progress-bar {
+  background: var(--glass-1);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.30);
+}
+.bar span,
+.progress-bar span {
+  box-shadow: 0 0 18px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+.tl-dot {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 16px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+.timeline::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.06));
+  border-radius: 99px;
+}
+
+/* ---------- 6. TABEL KACA ---------- */
+.table-wrap {
+  background-color: var(--glass-tint);
+  background-image: linear-gradient(150deg, var(--glass-2), var(--glass-1) 55%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(175%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(175%);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.30);
+}
+.data-table thead th {
+  background: linear-gradient(135deg,
+    rgba(167, 139, 250, 0.42),
+    rgba(34, 211, 238, 0.34));
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  color: var(--text);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+body.light .data-table thead th {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.30), rgba(8, 145, 178, 0.24));
+  text-shadow: none;
+}
+.data-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.data-table tbody tr:hover {
+  background: linear-gradient(90deg, var(--glass-2), var(--glass-1));
+}
+body.light .data-table tbody tr:hover { background: rgba(255, 255, 255, 0.75); }
+
+/* ---------- 7. PANEL TANYA JAWAB KACA ---------- */
+.qa-panel {
+  background-color: var(--glass-tint);
+  background-image: linear-gradient(var(--glass-2), var(--glass-1)) padding-box,
+                    linear-gradient(135deg, var(--accent), var(--accent-2), #f472b6) border-box;
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  box-shadow: var(--glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35),
+              0 0 44px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.qa-log {
+  background: color-mix(in srgb, var(--bg) 45%, transparent);
+  border: 1px solid var(--glass-line);
+  border-radius: 16px;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  padding: .8rem;
+  box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.30);
+}
+.qa-msg.bot {
+  background-color: color-mix(in srgb, var(--glass-2) 70%, transparent);
+  background-image: linear-gradient(150deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid var(--glass-line);
+  border-left: 3px solid var(--accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+.qa-msg.user {
+  background-color: color-mix(in srgb, var(--accent) 34%, transparent);
+  background-image: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent-2) 45%, transparent),
+    color-mix(in srgb, var(--accent) 45%, transparent));
+  backdrop-filter: blur(12px) saturate(170%);
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 26px rgba(0, 0, 0, 0.30);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.40);
+}
+.qa-chip,
+.reco-chip {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 8px 20px rgba(0, 0, 0, 0.26);
+}
+.qa-form input,
+.search-bar input {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+.qa-form .btn {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.40) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 26px var(--glow);
+}
+
+/* ---------- 8. PANEL PENCARIAN KACA ---------- */
+.search-panel {
+  background-color: var(--glass-tint);
+  background-image: linear-gradient(var(--glass-2), var(--glass-1)) padding-box,
+                    linear-gradient(135deg, var(--accent-2), var(--accent), #f472b6) border-box;
+  backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(185%);
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(185%);
+  box-shadow: var(--glass-shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35),
+              0 0 48px color-mix(in srgb, var(--accent-2) 20%, transparent);
+}
+.search-bar {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  border: 1px solid var(--glass-line);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.search-kbd {
+  background: var(--glass-1);
+  border-color: var(--glass-line);
+  backdrop-filter: blur(8px);
+}
+.search-item {
+  background-color: var(--glass-1);
+  background-image: linear-gradient(150deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 0 10px 24px rgba(0, 0, 0, 0.26);
+}
+.search-item:hover {
+  background-color: var(--glass-2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
+              0 16px 36px color-mix(in srgb, var(--accent-2) 32%, transparent);
+}
+.search-empty {
+  background: var(--glass-1);
+  border-color: var(--glass-line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.si-tag {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 6px 16px rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- 9. KARTU FAKTA ILMIAH (FLIP) ---------- */
+.fun-card .fun-front {
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.fun-card .fun-back {
+  background-color: color-mix(in srgb, var(--accent) 34%, transparent);
+  background-image: linear-gradient(140deg,
+    color-mix(in srgb, var(--accent) 52%, transparent),
+    color-mix(in srgb, var(--accent-2) 44%, transparent));
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  color: #ffffff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 20px 46px rgba(0, 0, 0, 0.42);
+}
+.fun-img {
+  background-color: rgba(8, 5, 22, 0.55);
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border-color: var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- 10. QUOTE / FOOTER / PETUNJUK SCROLL ---------- */
+.quote-mark {
+  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+.footer {
+  background-color: color-mix(in srgb, var(--bg) 55%, transparent);
+  background-image: linear-gradient(180deg, var(--glass-1), var(--glass-2));
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border-top: 1px solid var(--glass-line);
+}
+.scroll-hint {
+  background-color: color-mix(in srgb, var(--bg) 55%, transparent);
+  background-image: linear-gradient(160deg, var(--glass-2), var(--glass-1));
+  backdrop-filter: blur(18px) saturate(185%);
+  -webkit-backdrop-filter: blur(18px) saturate(185%);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.35),
+              0 0 26px rgba(167, 139, 250, 0.35);
+}
+.float-block {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.14));
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.b1 { background-image: linear-gradient(135deg, rgba(167, 139, 250, 0.75), rgba(34, 211, 238, 0.55)); }
+.b2 { background-image: linear-gradient(135deg, rgba(34, 211, 238, 0.75), rgba(167, 139, 250, 0.55)); }
+.b3 { background-image: linear-gradient(135deg, rgba(244, 114, 182, 0.8), rgba(255, 255, 255, 0.35)); }
+
+/* sub judul & lencana ikut berkaca */
+.sub-head,
+.ai-badge {
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+}
+.sub-head {
+  background: var(--glass-1);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  padding: .7rem 1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 26px rgba(0, 0, 0, 0.26);
+}
+
+/* label planet harus tetap terbaca di atas langit terang */
+body.light .sp-name {
+  color: rgba(23, 16, 51, 0.88);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 1px 4px rgba(255, 255, 255, 0.9);
+}
+body.light .space-planet.near .sp-name,
+body.light .space-planet.hit .sp-name {
+  color: #2b1a6b;
+  text-shadow: 0 0 14px rgba(124, 58, 237, 0.85);
+}
+body.light .space-planet.danger .sp-name {
+  color: #b3261e;
+  text-shadow: 0 0 12px rgba(255, 90, 70, 0.7);
+}
+
+/* ---------- 11. CADANGAN BILA BACKDROP-FILTER TIDAK DIDUKUNG ---------- */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  :root { --glass-tint: color-mix(in srgb, var(--card) 92%, transparent); }
+  section.section { background-color: color-mix(in srgb, var(--bg) 92%, transparent); }
+  .nav { background-color: color-mix(in srgb, var(--bg) 94%, transparent); }
+  .fun-card .fun-front,
+  .fun-card .fun-back,
+  .fun-img { background-color: color-mix(in srgb, var(--card) 94%, transparent); }
+}

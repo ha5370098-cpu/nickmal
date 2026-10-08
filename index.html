@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FiloCosmos — Nickmal Hawkings Portfolio</title>
+  <meta name="description" content="Portfolio Nickmal Hawkings — penjelajah ruang angkasa, IT guy, pembuat konten antariksa. Tema FiloCosmos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="filocosmos.css" />
+</head>
+<body>
+
+  <!-- LATAR RUANG ANGKASA INTERAKTIF: SELURUH PLANET TATA SURYA -->
+  <canvas id="spaceCanvas" aria-hidden="true"></canvas>
+  <div class="space-planets" aria-hidden="true">
+    <div class="space-planet sp-mercury" data-depth="14" style="--glow:rgba(220,200,180,.7)"><span class="sp-name">Merkurius</span></div>
+    <div class="space-planet sp-venus" data-depth="20" style="--glow:rgba(255,215,130,.75)"><span class="sp-name">Venus</span></div>
+    <div class="space-planet sp-earth" data-depth="26" style="--glow:rgba(110,190,255,.8)"><span class="sp-name">Bumi</span></div>
+    <div class="space-planet sp-mars" data-depth="18" style="--glow:rgba(255,130,80,.75)"><span class="sp-name">Mars</span></div>
+    <div class="space-planet sp-jupiter" data-depth="32" style="--glow:rgba(255,190,120,.75)"><span class="sp-name">Jupiter</span></div>
+    <div class="space-planet sp-saturn has-ring" data-depth="36" style="--glow:rgba(255,215,150,.8)"><span class="sp-name">Saturnus</span></div>
+    <div class="space-planet sp-uranus" data-depth="16" style="--glow:rgba(160,240,255,.75)"><span class="sp-name">Uranus</span></div>
+    <div class="space-planet sp-neptune" data-depth="22" style="--glow:rgba(120,160,255,.75)"><span class="sp-name">Neptunus</span></div>
+  </div>
+
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#home" class="logo">FiloCosmos<span class="blink">_</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#sains">Sains</a>
+      <a href="#alam">Alam Semesta</a>
+      <a href="#ruang">Ruang &amp; Waktu</a>
+      <a href="#logika">Logika</a>
+      <a href="#astronomi">Astronomi</a>
+      <a href="#ai">AI</a>
+      <a href="#bahasa">Bahasa</a>
+      <a href="#aplikasi">Aplikasi</a>
+      <a href="#filsafat">Filsafat</a>
+      <a href="#cari">Cari</a>
+      <a href="#tanya">Tanya Jawab</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="navSearch" class="nav-search" aria-label="Buka pencarian">🔍</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="Ganti tema">◑</button>
+  </header>
+
+  <!-- PETUNJUK SCROLL -->
+  <div class="scroll-hint" id="scrollHint" aria-hidden="true">
+    <span class="sh-text">Gulir ke bawah untuk menjelajah</span>
+    <span class="sh-arrow">▼</span>
+  </div>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="tag reveal">// filocosmos.exe</p>
+        <h1 class="reveal">NICKMAL <span class="accent">COSMOS</span></h1>
+        <p class="subtitle reveal">Penjelajah Ruang Angkasa &middot; IT Guy &middot; Content Creator</p>
+        <p class="typewriter-wrap"><span id="typewriter"></span><span class="cursor">█</span></p>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
+          <a href="#about" class="btn btn-ghost">Tentang Saya</a>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="pixel-card">
+          <div class="hero-planet has-ring"></div>
+          <div class="pixel-tag">FiloCosmos</div>
+        </div>
+        <div class="float-block b1"></div>
+        <div class="float-block b2"></div>
+        <div class="float-block b3"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title reveal"><span class="num">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Saya <strong>Nickmal Hawkings</strong>, seorang <strong>penjelajah ruang angkasa</strong> yang
+            menghabiskan waktu di antara teleskop dan baris perintah. Bagi saya, semesta bukan sekadar
+            pemandangan, melainkan data yang harus dipahami.
+          </p>
+          <p>
+            Sebagai <strong>IT practitioner</strong>, saya terbiasa menangani perangkat keras,
+            perangkat lunak, jaringan, serta scripting — kini banyak saya gunakan untuk memproses
+            citra langit, katalog bintang, dan visualisasi antariksa.
+          </p>
+          <p>
+            Di luar kegiatan teknis, saya aktif membuat <strong>konten luar angkasa</strong> —
+            menjelaskan fakta tentang planet, galaksi, dan tata surya dengan bahasa yang mudah
+            dicermati siapa pun.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Nama</span><span class="v">Nickmal Hawkings</span></div>
+          <div class="fact"><span class="k">Status</span><span class="v">Content Creator</span></div>
+          <div class="fact"><span class="k">Bidang</span><span class="v">IT / Astronomi</span></div>
+          <div class="fact"><span class="k">Favorit</span><span class="v">Menjelajah Luar Angkasa</span></div>
+          <div class="fact"><span class="k">Instagram</span><span class="v">@nickmalcom1</span></div>
+          <div class="fact"><span class="k">TikTok</span><span class="v">@nikmal128</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="stats-grid">
+        <div class="stat reveal"><span class="stat-num" data-count="1500">0</span><span class="stat-label">Jam praktik TI</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="4320">0</span><span class="stat-label">Jam mengamati langit</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="37">0</span><span class="stat-label">Proyek diselesaikan</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="99" data-suffix="%">0</span><span class="stat-label">Rasa ingin tahu</span></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title reveal"><span class="num">02.</span> Skills</h2>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🛰</div>
+          <h3>Observasi Antariksa</h3>
+          <p>Teleskop, pemotretan langit, dan pencatatan objek deep-sky seperti nebula serta gugus bintang.</p>
+          <div class="bar"><span style="--w:85%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">&lt;/&gt;</div>
+          <h3>Visualisasi Data Antariksa</h3>
+          <p>JavaScript, WebGL, dan Python untuk memvisualisasikan katalog bintang, planet, dan orbit.</p>
+          <div class="bar"><span style="--w:80%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌐</div>
+          <h3>Planetarium Web Interaktif</h3>
+          <p>Membangun pengalaman web bertema ruang angkasa yang responsif dan interaktif terhadap pengunjung.</p>
+          <div class="bar"><span style="--w:75%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">☄</div>
+          <h3>Animasi &amp; Rendering 3D</h3>
+          <p>Partikel, efek cahaya, dan simulasi orbit untuk konten antariksa yang hidup.</p>
+          <div class="bar"><span style="--w:90%"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <h2 class="section-title reveal"><span class="num">03.</span> Fakta Luar Angkasa</h2>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">BUMI</span>
+            <h3>Bumi berputar ±1.670 km/jam</h3>
+            <p>Di khatulistiwa, Bumi berputar dengan kecepatan sekitar 1.670 km/jam. Kita tidak merasakannya karena semua ikut bergerak bersama.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">MATAHARI</span>
+            <h3>Matahari menyimpan 99,8% massa tata surya</h3>
+            <p>Seluruh planet, bulan, asteroid, dan komet hanya menyisakan sekitar 0,2% dari total massa tata surya kita.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">GALAKSI</span>
+            <h3>Ada ±2 triliun galaksi di alam semesta</h3>
+            <p>Tata surya kita berada di galaksi Bima Sakti — satu dari triliunan galaksi yang dapat diamati oleh teleskop modern.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <span class="tl-year">SEMESTA</span>
+            <h3>Semesta berusia 13,8 miliar tahun</h3>
+            <p>Cahaya dari objek terjauh telah menempuh perjalanan miliaran tahun untuk mencapai mata kita — kita selalu melihat masa lalu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="saluran" class="section">
+      <h2 class="section-title reveal"><span class="num">04.</span> Saluran</h2>
+      <div class="mc-panel reveal">
+        <div class="mc-avatar">
+          <div class="saturn-planet" aria-hidden="true"></div>
+        </div>
+        <div class="mc-info">
+          <p class="mc-label">CHANNEL</p>
+          <p class="mc-name">Nickmal Hawkings</p>
+          <div class="mc-stats">
+            <div><span class="mc-stat-k">Format</span><span class="mc-stat-v">Video &amp; Short</span></div>
+            <div><span class="mc-stat-k">Topik</span><span class="mc-stat-v">Luar Angkasa</span></div>
+            <div><span class="mc-stat-k">Status</span><span class="mc-stat-v online">● Online</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fun" class="section">
+      <h2 class="section-title reveal"><span class="num">05.</span> Fakta Ilmiah</h2>
+      <p class="section-hint reveal">Klik kartu untuk melihat fakta ilmiah di balik ilustrasinya.</p>
+      <div class="fun-grid">
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Cahaya Matahari menuju Bumi">
+              <defs>
+                <radialGradient id="fsun" cx="35%" cy="35%"><stop offset="0" stop-color="#fff6cf"/><stop offset="55%" stop-color="#ffcf5e"/><stop offset="100%" stop-color="#f08a1d"/></radialGradient>
+                <radialGradient id="fe1" cx="35%" cy="30%"><stop offset="0" stop-color="#bfefff"/><stop offset="60%" stop-color="#3ea6e6"/><stop offset="100%" stop-color="#134a7c"/></radialGradient>
+              </defs>
+              <g stroke="#ffd97a" stroke-width="3" stroke-linecap="round" opacity=".85">
+                <line x1="34" y1="20" x2="34" y2="6"/><line x1="34" y1="100" x2="34" y2="114"/>
+                <line x1="10" y1="36" x2="0" y2="26"/><line x1="10" y1="84" x2="0" y2="94"/>
+              </g>
+              <circle cx="34" cy="60" r="24" fill="url(#fsun)"/>
+              <line x1="64" y1="60" x2="146" y2="60" stroke="#ffe9a8" stroke-width="3" stroke-dasharray="7 6"/>
+              <path d="M146 60 l-12 -6 v12 z" fill="#ffe9a8"/>
+              <text x="105" y="50" fill="#ffe9a8" font-size="13" font-family="monospace" text-anchor="middle">8m 20d</text>
+              <circle cx="170" cy="60" r="20" fill="url(#fe1)"/>
+              <path d="M158 55 q8 -7 16 -2 q7 4 12 0 q-4 10 -14 12 q-10 1 -14 -10z" fill="#4fbf6a"/>
+              <path d="M166 72 q9 -3 14 2 q-6 6 -14 3z" fill="#4fbf6a" opacity=".9"/>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Cahaya Matahari butuh 8 menit 20 detik untuk tiba di Bumi.</span>
+        </button>
+
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Saturnus bercincin">
+              <defs>
+                <radialGradient id="fsat" cx="32%" cy="28%"><stop offset="0" stop-color="#fff2cf"/><stop offset="55%" stop-color="#e5b965"/><stop offset="100%" stop-color="#8a6420"/></radialGradient>
+              </defs>
+              <g transform="rotate(-20 100 60)">
+                <ellipse cx="100" cy="60" rx="82" ry="20" fill="none" stroke="#f0d69b" stroke-width="6" opacity=".55"/>
+                <ellipse cx="100" cy="60" rx="66" ry="15" fill="none" stroke="#c9a45e" stroke-width="4" opacity=".7"/>
+              </g>
+              <circle cx="100" cy="60" r="34" fill="url(#fsat)"/>
+              <g transform="rotate(-20 100 60)" clip-path="none">
+                <path d="M18 60 a82 20 0 0 0 164 0" fill="none" stroke="#f0d69b" stroke-width="6" opacity=".85"/>
+              </g>
+              <ellipse cx="92" cy="50" rx="26" ry="10" fill="#fff" opacity=".12"/>
+              <text x="100" y="112" fill="#f4e3bb" font-size="12" font-family="monospace" text-anchor="middle">&lt; air</text>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Saturnus hampir seluruhnya berupa gas — kepadatannya lebih kecil daripada air.</span>
+        </button>
+
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Bulan menjauh dari Bumi">
+              <defs>
+                <radialGradient id="fe2" cx="35%" cy="30%"><stop offset="0" stop-color="#d3f3ff"/><stop offset="60%" stop-color="#3ea6e6"/><stop offset="100%" stop-color="#12436f"/></radialGradient>
+                <radialGradient id="fmoon" cx="35%" cy="30%"><stop offset="0" stop-color="#f4f4f6"/><stop offset="70%" stop-color="#b9bcc6"/><stop offset="100%" stop-color="#6b6f7c"/></radialGradient>
+              </defs>
+              <circle cx="52" cy="62" r="34" fill="url(#fe2)"/>
+              <path d="M32 50 q16 -12 32 -4 q14 7 26 1 q-8 20 -30 24 q-24 3 -28 -21z" fill="#54c177" opacity=".95"/>
+              <circle cx="156" cy="44" r="18" fill="url(#fmoon)"/>
+              <circle cx="150" cy="40" r="4" fill="#8e929e" opacity=".8"/><circle cx="162" cy="50" r="3" fill="#8e929e" opacity=".7"/>
+              <path d="M92 78 q28 22 58 8" fill="none" stroke="#ffe9a8" stroke-width="3" stroke-dasharray="7 6"/>
+              <path d="M150 86 l10 -6 -2 11z" fill="#ffe9a8"/>
+              <text x="120" y="70" fill="#ffe9a8" font-size="12" font-family="monospace" text-anchor="middle">3,8 cm/th</text>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Bulan menjauh dari Bumi sekitar 3,8 cm setiap tahun.</span>
+        </button>
+
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Galaksi spiral Bima Sakti">
+              <defs>
+                <radialGradient id="fgal" cx="50%" cy="50%"><stop offset="0" stop-color="#fff7d6"/><stop offset="45%" stop-color="#ffca7a"/><stop offset="100%" stop-color="#6a4bd6"/></radialGradient>
+              </defs>
+              <g fill="none" stroke-linecap="round">
+                <path d="M100 60 C 70 30, 40 46, 44 74 C 48 100, 84 104, 100 60" stroke="#8f7bff" stroke-width="9" opacity=".55"/>
+                <path d="M100 60 C 130 90, 160 74, 156 46 C 152 20, 116 16, 100 60" stroke="#57d0ff" stroke-width="9" opacity=".55"/>
+                <path d="M100 60 C 88 44, 66 46, 62 62" stroke="#d7c9ff" stroke-width="5" opacity=".7"/>
+                <path d="M100 60 C 112 76, 134 74, 138 58" stroke="#d7c9ff" stroke-width="5" opacity=".7"/>
+              </g>
+              <circle cx="100" cy="60" r="17" fill="url(#fgal)"/>
+              <g fill="#ffffff">
+                <circle cx="70" cy="40" r="1.7"/><circle cx="132" cy="82" r="1.7"/><circle cx="146" cy="34" r="1.4"/>
+                <circle cx="54" cy="86" r="1.4"/><circle cx="118" cy="24" r="1.3"/><circle cx="82" cy="96" r="1.3"/>
+              </g>
+              <text x="100" y="114" fill="#cfe9ff" font-size="12" font-family="monospace" text-anchor="middle">26.000 ly</text>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Tata surya kita berada sekitar 26.000 tahun cahaya dari pusat galaksi Bima Sakti.</span>
+        </button>
+
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Lubang hitam dengan piringan akresi">
+              <defs>
+                <radialGradient id="fbh" cx="50%" cy="50%"><stop offset="0" stop-color="#000"/><stop offset="70%" stop-color="#000"/><stop offset="100%" stop-color="#1b0f2e"/></radialGradient>
+                <linearGradient id="fac" x1="0" x2="1"><stop offset="0" stop-color="#ff9b3d"/><stop offset="50%" stop-color="#ffe08a"/><stop offset="100%" stop-color="#ff6ad5"/></linearGradient>
+              </defs>
+              <ellipse cx="100" cy="62" rx="80" ry="22" fill="none" stroke="url(#fac)" stroke-width="10" opacity=".8"/>
+              <circle cx="100" cy="60" r="34" fill="url(#fbh)"/>
+              <path d="M20 62 a80 22 0 0 1 160 0" fill="none" stroke="url(#fac)" stroke-width="7"/>
+              <circle cx="100" cy="60" r="38" fill="none" stroke="#fff" stroke-width="1.5" opacity=".45"/>
+              <text x="100" y="112" fill="#ffd9a8" font-size="12" font-family="monospace" text-anchor="middle">c = 0</text>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Cahaya tidak dapat lolos dari lubang hitam — itulah sebabnya ia tampak "hitam".</span>
+        </button>
+
+        <button class="fun-card reveal" type="button">
+          <span class="fun-front">
+            <svg class="fun-img" viewBox="0 0 200 120" role="img" aria-label="Angin kencang di Neptunus">
+              <defs>
+                <radialGradient id="fnep" cx="32%" cy="28%"><stop offset="0" stop-color="#d8ecff"/><stop offset="55%" stop-color="#3f7fe6"/><stop offset="100%" stop-color="#0e2f74"/></radialGradient>
+              </defs>
+              <circle cx="78" cy="58" r="38" fill="url(#fnep)"/>
+              <g stroke="#bfe1ff" stroke-width="3" fill="none" opacity=".8" stroke-linecap="round">
+                <path d="M62 44 q16 -8 32 0"/><path d="M54 62 q22 10 44 -2"/><path d="M64 78 q14 6 28 -2"/>
+              </g>
+              <ellipse cx="70" cy="52" rx="9" ry="5" fill="#123a7a" opacity=".8"/>
+              <g stroke="#7fe8ff" stroke-width="3" fill="none" stroke-linecap="round">
+                <path d="M124 40 q26 -10 44 4 q10 8 2 16"/>
+                <path d="M120 66 q30 12 56 -2"/>
+                <path d="M128 88 q22 6 40 -4"/>
+              </g>
+              <text x="152" y="30" fill="#7fe8ff" font-size="12" font-family="monospace" text-anchor="middle">2.100 km/j</text>
+            </svg>
+            <span class="search-text">🔍 Cari di Google</span>
+          </span>
+          <span class="fun-back">Neptunus menyimpan angin tercepat di tata surya, hingga 2.100 km/jam.</span>
+        </button>
+      </div>
+
+      <div class="quote-box reveal">
+        <span class="quote-mark">"</span>
+        <p id="quoteText">Rasa ingin tahu adalah modal utama dalam menjelajah semesta.</p>
+        <button id="nextQuote" class="btn btn-ghost btn-sm">Quote berikutnya →</button>
+      </div>
+    </section>
+
+    <!-- ============ 06. SAINS & FISIKA ============ -->
+    <section id="sains" class="section">
+      <h2 class="section-title reveal"><span class="num">06.</span> Sains &amp; Fisika</h2>
+      <p class="section-hint reveal">Sains menjelaskan <em>bagaimana</em> alam bekerja; fisika merumuskannya menjadi hukum yang dapat diuji, diukur, dan diprediksi.</p>
+
+      <p class="sub-head reveal">🌌 Teori-Teori Besar</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌌</div>
+          <h3>Teori Big Bang</h3>
+          <p>Semesta bermula ±13,8 miliar tahun lalu dari keadaan sangat panas dan padat, lalu terus mengembang. Bukti utamanya: pergeseran merah galaksi, melimpahnya hidrogen-helium, dan sisa radiasi latar mikro (CMB) sekitar 2,7 K.</p>
+          <div class="bar"><span style="--w:92%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⏳</div>
+          <h3>Teori Relativitas</h3>
+          <p>Einstein (1905 &amp; 1915) menyatukan ruang dan waktu menjadi ruangwaktu. Relativitas umum menjelaskan gravitasi sebagai lengkungan ruangwaktu oleh massa — mengapa Bumi mengorbit Matahari tanpa tali penarik.</p>
+          <div class="bar"><span style="--w:88%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚛</div>
+          <h3>Mekanika Kuantum</h3>
+          <p>Dunia partikel kecil bersifat probabilitistik: fungsi gelombang, superposisi, prinsip ketidakpastian Heisenberg, dan ketergantungan (entanglement) yang membuat pengukuran satu partikel memengaruhi yang lain.</p>
+          <div class="bar"><span style="--w:85%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🍎</div>
+          <h3>Hukum Gravitasi Newton</h3>
+          <p>1687: setiap massa menarik massa lain dengan gaya sebanding perkalian massa dan berbanding terbalik kuadrat jarak. Hukum sederhana ini menjelaskan jatuhnya apel, orbit Bulan, hingga perjalanan komet.</p>
+          <div class="bar"><span style="--w:90%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌡</div>
+          <h3>Termodinamika &amp; Entropi</h3>
+          <p>Empat hukum termodinamika mengatur panas dan kerja. Entropi sistem tertutup cenderung meningkat — inilah "arah waktu" fisika: es mencair, kopi mendingin, bintang menua.</p>
+          <div class="bar"><span style="--w:80%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧬</div>
+          <h3>Teori Evolusi</h3>
+          <p>Darwin &amp; Wallace: variasi acak dalam populasi + tekanan seleksi alam = perubahan spesies dari generasi ke generasi. Bersama genetika Mendel, teori ini menjelaskan keberagaman kehidupan di Bumi.</p>
+          <div class="bar"><span style="--w:86%"></span></div>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🔬 Ilmuwan Berpengaruh</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧠</div>
+          <h3>Albert Einstein (1879–1955)</h3>
+          <p>Fisikawan relativitas dan efek fotolistrik (Nobel 1921). E = mc² menyatakan energi setara dengan massa dikali kecepatan cahaya kuadrat.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📐</div>
+          <h3>Isaac Newton (1643–1727)</h3>
+          <p>Merumuskan tiga hukum gerak dan gravitasi universal, serta ikut mengembangkan kalkulus dan optik cahaya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔭</div>
+          <h3>Galileo Galilei (1564–1642)</h3>
+          <p>Bapak pengamat teleskop: bulan berbukit, empat bulan Jupiter, dan fase Venus — bukti langit bergerak bukan semata berputar mengelilingi Bumi.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🕳</div>
+          <h3>Stephen Hawking (1942–2018)</h3>
+          <p>Menggabungkan relativitas umum dan kuantum: radiasi Hawking menunjukkan lubang hitam perlahan menguap.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">☢</div>
+          <h3>Marie Curie (1867–1934)</h3>
+          <p>Pelopor radioaktivitas; peraih Nobel fisika (1903) dan kimia (1911) — wanita pertama pemenang Nobel ganda.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🪐</div>
+          <h3>Johannes Kepler (1571–1630)</h3>
+          <p>Tiga hukum gerak planet: orbit elips, garishayal sama luas, dan hubungan kubik jarak–periode planet.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🛰 Teknologi</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🛰</div>
+          <h3>Teleskop Luar Angkasa</h3>
+          <p>Hubble dan James Webb mengorbit Bumi / berada di titik L2 — bebas polusi cahaya dan atmosfer untuk memotret alam semesta paling jauh.</p>
+          <div class="bar"><span style="--w:88%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🚀</div>
+          <h3>Roket &amp; Sistem Peluncuran</h3>
+          <p>Prinsip aksi-reaksi Newton: pembakaran bahan bakar ke belakang mendorong roket maju. Peluncuran bertahap memangkas massa agar mencapai 7,8 km/s (kecepatan orbit).</p>
+          <div class="bar"><span style="--w:84%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🏗</div>
+          <h3>Stasiun Luar Angkasa (ISS)</h3>
+          <p>Rumah sains mengorbit ±400 km dengan kecepatan 28.000 km/jam — lingkungan mikrogravitasi untuk eksperimen biologi, material, dan medis.</p>
+          <div class="bar"><span style="--w:80%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📡</div>
+          <h3>Satelit &amp; GPS</h3>
+          <p>Ratusan satelit komunikasi dan navigasi; GPS membandingkan waktu sinyal dari ≥4 satelit untuk menentukan posisi hingga meteran.</p>
+          <div class="bar"><span style="--w:82%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🤖</div>
+          <h3>Rover &amp; Kecerdasan Buatan</h3>
+          <p>Perseverance dan Curiosity menjelajah Mars secara otonom; AI memilah citra bintang, memprediksi cuaca antariksa, dan menemukan planet exoplanet.</p>
+          <div class="bar"><span style="--w:78%"></span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💡</div>
+          <h3>Energi Surya &amp; Listrik</h3>
+          <p>Sel fotovoltaik mengubah foton menjadi elektron mengalir — teknologi yang sama dipakai satelit dan rumah di Bumi.</p>
+          <div class="bar"><span style="--w:76%"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 07. ALAM SEMESTA: PLANET, BINTANG & GALAKSI ============ -->
+    <section id="alam" class="section">
+      <h2 class="section-title reveal"><span class="num">07.</span> Alam Semesta: Planet, Bintang &amp; Galaksi</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Planet</strong> adalah benda langit yang bulat karena gravitasi sendiri, mengorbit
+            sebuah bintang, dan sudah "mengosongkan" orbitnya dari benda lain. Di Tata Surya kita ada
+            empat <em>planet terestrial</em> (berbatuan: Merkurius, Venus, Bumi, Mars) dan empat
+            <em>planet raksasa</em> (Jupiter &amp; Saturnus berupa gas; Uranus &amp; Neptunus berupa es).
+            Planet tidak bercahaya sendiri — yang kita lihat adalah pantulan cahaya Matahari.
+          </p>
+          <p>
+            <strong>Bintang</strong> adalah bola gas raksasa yang menyala karena reaksi fusi inti:
+            hidrogen menyatu menjadi helium dan melepas energi luar biasa (E = mc²). Matahari kita adalah
+            bintang deret utama kelas G2V berusia ±4,6 miliar tahun. Semua bintang punya siklus hidup —
+            lahir di awan nebula, hidup membakar bahan bakar, lalu mati meninggalkan katai putih,
+            bintang neutron, atau lubang hitam.
+          </p>
+          <p>
+            <strong>Galaksi</strong> adalah kumpulan ratusan miliar bintang, gas, debu, dan materi gelap
+            yang terikat gravitasi. Bima Sakti — galaksi kita — berbentuk spiral, berdiameter sekitar
+            100.000–180.000 tahun cahaya, dan menjadi rumah bagi 100–400 miliar bintang. Di luar itu ada
+            galaksi elips, galaksi tak beraturan, dan gugus galaksi raksasa yang membentuk "jaring laba-laba"
+            struktur semesta.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Planet Tata Surya</span><span class="v">8 planet + 5 kerdil</span></div>
+          <div class="fact"><span class="k">Bintang Terdekat</span><span class="v">Proxima Centauri — 4,24 ly</span></div>
+          <div class="fact"><span class="k">Diameter Bima Sakti</span><span class="v">± 100.000 tahun cahaya</span></div>
+          <div class="fact"><span class="k">Jumlah Galaksi</span><span class="v">± 2 triliun</span></div>
+          <div class="fact"><span class="k">Usia Semesta</span><span class="v">13,8 miliar tahun</span></div>
+          <div class="fact"><span class="k">Cakrawala Semesta</span><span class="v">± 93 miliar tahun cahaya</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">🪐 Jenis Planet &amp; Benda Tata Surya</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🪨</div>
+          <h3>Planet Terestrial</h3>
+          <p>Planet berbatuan dengan inti logam dan permukaan padat: Merkurius, Venus, Bumi, Mars. Berukuran kecil, padat, bersatelit sedikit, dan berada dekat Matahari. Bumi satu-satunya yang diketahui punya air cair stabil dan kehidupan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌪</div>
+          <h3>Planet Raksasa Gas</h3>
+          <p>Jupiter dan Saturnus didominasi hidrogen–helium, tidak punya permukaan padat, dan memiliki sistem cincin serta puluhan bulan. Jupiter menyimpan 99,8% sisanya massa Tata Surya setelah Matahari dan menjadi perisai gravitasi Bumi.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧊</div>
+          <h3>Planet Raksasa Es</h3>
+          <p>Uranus dan Neptunus mengandung banyak air, amonia, dan metana beku — metana itulah yang memberi warna biru. Uranus berputar "terbaring" dengan kemiringan sumbu 98°, sementara Neptunus menyimpan angin tercepat: 2.100 km/jam.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🪐</div>
+          <h3>Planet Kerdil</h3>
+          <p>Pluto, Ceres, Eris, Haumea, Makemake — bulat dan mengorbit Matahari, tetapi belum membersihkan orbitnya. Pluto dicabut status planetnya pada 2006 kini memiliki 5 bulan, termasuk Charon yang hampir seukuran Pluto sendiri.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">☄</div>
+          <h3>Asteroid &amp; Komet</h3>
+          <p>Asteroid adalah sisa bahan bangun Tata Surya (Sabuk Asteroid antara Mars–Jupiter). Komet adalah "bola salju kotor" es–debu yang saat mendekati Matahari menguap dan menyeret ekor panjang — ekor selalu menjauhi Matahari karena tekanan cahaya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌕</div>
+          <h3>Bulan &amp; Satelit Alam</h3>
+          <p>Bulan terbentuk dari material yang terlempar setelah Bumi bentrok dengan protoplanet Theia (teori Giant Impact). Jupiter memelihara 95+ bulan — Ganymede bahkan lebih besar dari Merkurius, dan Europa diduga menyimpan lautan bawah es.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">⭐ Kehidupan &amp; Kematian Bintang</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌫</div>
+          <h3>Lahir dari Awan Nebula</h3>
+          <p>Sebuah gumpalan gas dan debu di nebula runtuh karena gravitasi (jejak Jeans), makin panas dan padat hingga membentuk protobintang. Sisa material membentuk piringan protoplanet — di situlah planet-planet lahir.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">☀️</div>
+          <h3>Fase Deret Utama</h3>
+          <p>Bintang menghabiskan 90% hidupnya dengan menyetel hidrogen menjadi helium di inti. Makin besar massa bintang, makin pendek hidupnya: bintang 20× Matahari bisa habis dalam puluhan juta tahun, Matahari ±10 miliar tahun.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔴</div>
+          <h3>Raksasa Merah</h3>
+          <p>Ketika hidrogen inti habis, bintang membengkak dan mendingin di permukaan. Matahari kelak akan menjadi raksasa merah yang menelan Merkurius dan Venus — dan sampai ke orbit Bumi sebelum melempar lapisan luarnya menjadi nebula planet.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💥</div>
+          <h3>Supernova</h3>
+          <p>Inti raksasa merah runtuh dalam milidetik dan melontarkan seluruh lapisan luar dengan energi setengah galaksi. Unsur berat seperti karbon, oksigen, besi, dan uranium lahir di sini — lalu tersebar menjadi bahan baku planet berikutnya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚪</div>
+          <h3>Katai Putih &amp; Bintang Neutron</h3>
+          <p>Sisa inti selebar Bumi yang didukung tekanan elektron degeneratif (katai putih). Jika massa melebihi batas Chandrasekhar (±1,4 Matahari), inti runtuh lebih jauh menjadi bintang neutron setebal 20 km yang berputar ribuan kali per detik (pulsar).</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🕳</div>
+          <h3>Lubang Hitam</h3>
+          <p>Bintang bermassa sangat besar runtuh tanpa batas hingga membentuk singularitas: kepadatan tak terhingga dengan cakrawala peristiwa sebagai batas "tak bisa kembali". Lubang hitam supermasif (jutaan–miliaran Matahari) bersemayam di pusat hampir semua galaksi.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🌌 Galaksi &amp; Struktur Semesta</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌀</div>
+          <h3>Galaksi Spiral</h3>
+          <p>Piringan datar dengan lengan berputar dan inti bulat — contohnya Bima Sakti dan Andromeda (M31). Lengan terbentuk dari gelombang kejut yang memampatkan gas sehingga memicu kelahiran bintang baru berwarna biru terang.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🥚</div>
+          <h3>Galaksi Elips &amp; Tak Beraturan</h3>
+          <p>Galaksi elips (bentuk bola/memanjang) berisi bintang tua kemerahan dan hampir tak punya gas untuk membuat bintang baru. Galaksi tak beraturan (seperti Awan Magellan Besar) berantakan akibat tarikan gravitasi galaksi tetangga.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🕸</div>
+          <h3>Gugus, Filamen &amp; Kosmik Web</h3>
+          <p>Galaksi berkumpul dalam gugus (Virgo) lalu tersambung membentuk filamen raksasa mengelilingi gugusan kosong (void) — struktur terbesar semesta yang disebut Cosmic Web, terbentuk dari benih kerapatan era Big Bang.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚫</div>
+          <h3>Materi Gelap</h3>
+          <p>±27% isi semesta adalah materi tak terlihat yang hanya berinteraksi lewat gravitasi — buktinya rotasi galaksi terlalu cepat dan lensa gravitasi terlalu kuat. Tanpa materi gelap, galaksi tak akan pernah sempat terbentuk.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🫧</div>
+          <h3>Energi Gelap</h3>
+          <p>±68% semesta adalah "tenaga" yang mempercepat pengembangan semesta. Ditemukan 1998 dari pengamatan supernova jauh yang ternyata lebih redup dari perkiraan — seolah semesta didorong menjauh, bukan ditarik mundur.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔭</div>
+          <h3>Jarak &amp; Pengukuran</h3>
+          <p>Astronom memakai "tangga jarak": paralaks bintang → bintang variabel Cepheid → supernova tipe Ia. Dengan koreksi pergeseran merah, jarak diukur hingga miliaran tahun cahaya — semua berkat penemuan Henrietta Leavitt tentang periode Cepheid.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 08. RUANG, WAKTU & PERTANYAAN BESAR ============ -->
+    <section id="ruang" class="section">
+      <h2 class="section-title reveal"><span class="num">08.</span> Ruang, Waktu &amp; Pertanyaan Besar</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Dalam fisika modern, <strong>ruang dan waktu bukan wadah pasif</strong>, melainkan satu kain
+            dinamis bernama <strong>ruangwaktu</strong>. Masa muda Einstein (1905) menunjukkan waktu
+            bergantung pada gerak: pengamat yang bergerak cepat mengalami waktu lebih lambat
+            (<em>dilatasi waktu</em>), dan panjang objek menyusut. Semakin dekat ke kecepatan cahaya,
+            semakin dramatis efeknya — pesawat yang menempuh 99,9% kecepatan cahaya akan menua jauh
+            lebih lambat daripada orang di Bumi.
+          </p>
+          <p>
+            Relativitas umum (1915) menambahkan: <strong>massa melengkungkan ruangwaktu</strong>, dan
+            lengkungan itulah yang kita rasakan sebagai gravitasi. Waktu juga melambat di dekat massa
+            besar — jam di permukaan Bumi berjalan sedikit lebih lambat daripada jam di satelit GPS;
+            tanpa koreksi relativistik ini, posisi GPS akan meleset ±10 km setiap hari.
+          </p>
+          <p>
+            Waktu memiliki <em>arah</em> (entropi membesar) tetapi hukum dasar fisika hampir semua
+            bersimetri waktu — itulah salah satu misteri terbesar: mengapa kita ingat masa lalu dan bukan
+            masa depan? Sementara itu, "sebelum Big Bang" mungkin bukan pertanyaan yang sah, karena waktu
+            sendiri diyakini ikut lahir bersama pengembangan semesta.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Kecepatan Cahaya</span><span class="v">299.792.458 m/s (konstan)</span></div>
+          <div class="fact"><span class="k">Satuan Astronomi</span><span class="v">149.597.870 km</span></div>
+          <div class="fact"><span class="k">Tahun Cahaya</span><span class="v">9,46 triliun km</span></div>
+          <div class="fact"><span class="k">Waktu &amp; Massa</span><span class="v">mengubah tempo waktu</span></div>
+          <div class="fact"><span class="k">Energi Gelap</span><span class="v">±68% semesta</span></div>
+          <div class="fact"><span class="k">Materi Gelap</span><span class="v">±27% semesta</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">❓ Pertanyaan Besar yang Belum Terjawab</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">❓</div>
+          <h3>Apa yang "sebelum" Big Bang?</h3>
+          <p>Jika waktu dimulai bersama pengembangan semesta, kata "sebelum" kehilangan makna. Beberapa model menawarkan semesta pantul (bounce), siklus panas-dingin, atau banyak semesta (multiverse) — namun belum ada bukti pengamatan yang bisa memisahkan mereka.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">👽</div>
+          <h3>Apakah kita sendirian?</h3>
+          <p>Paradoks Fermi: dengan ratusan miliar bintang dan miliaran planet layak huni, mengapa belum ada tanda kehidupan lain? Jawaban yang mungkin: jarang (Great Filter), komunikasi sulit, umur peradaban pendek, atau mereka memang sudah ada namun tak terlihat.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚖️</div>
+          <h3>Kenapa materi mengalahkan antimateri?</h3>
+          <p>Big Bang seharusnya menghasilkan materi dan antimateri sebanyak-banyaknya, lalu saling memusnahkan menjadi cahaya. Kenapa tersisa 1 bagian dari 1 miliar? Pelanggaran simetri CP pada partikel (teramati di eksperimen LHC) mungkin kuncinya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌑</div>
+          <h3>Apa sebenarnya materi gelap?</h3>
+          <p>Kandidat utama: WIMP, axion, atau lubang hitam primitif yang lahir langsung dari Big Bang. Ratusan eksperimen bawah tanah (XENON, LZ) belum menemukannya. Alternatif radikalnya: gravitasi Newton yang dimodifikasi (MOND) — tetapi MOND gagal menjelaskan perilaku gugus galaksi.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🚀</div>
+          <h3>Kenapa gravitasi begitu lemah?</h3>
+          <p>Gaya gravitasi antara dua elektron 10³⁶ kali lebih lemah daripada gaya elektromagnetik. Menemukan "graviton" atau memadukan gravitasi dengan kuantum (teori medan kuantum gravitasi) adalah pekerjaan besar fisika abad ke-21.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧩</div>
+          <h3>Apakah hukum fisika disetel pas?</h3>
+          <p>Kecepatan cahaya, gaya nuklir kuat, massa elektron — jika sedikit saja berubah, bintang tak bisa menyala dan atom tak bisa terbentuk. Apakah ini kebetulan, bukti multiverse, atau tanda adanya "desainer"? Ini pusat debat fine-tuning.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⏳</div>
+          <h3>Bisakah waktu berjalan mundur?</h3>
+          <p>Hampir semua hukum mikro fisika simetris waktu (T-symmetry), tetapi entropi dan ingatan kita hanya ke satu arah. Kasus pelanggaran CP sekaligus pelanggaran T pada partikel K/B menunjukkan waktu mungkin punya arah bawaan di level fundamental.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌀</div>
+          <h3>Apakah semesta tak terhingga?</h3>
+          <p>Curvature semesta mendekati nol, artinya bisa datar dan tak terhingga. Jika tak terhingga, kombinasi partikel pasti berulang — "versi lainmu" ada triliunan tahun cahaya jauhnya. Belum ada cara mengujinya secara langsung.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📜</div>
+          <h3>Paradoks Informasi Lubang Hitam</h3>
+          <p>Mekanika kuantum melarang informasi hilang, tetapi lubang hitam tampak "membuang"nya. Hawking sempat menyarankan informasi lenyap, lalu mundur; kini diyakini informasi tersimpan di permukaan (prinsip holografik) dan bocor perlahan lewat radiasi.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 09. LOGIKA & BERPIKIR KRITIS ============ -->
+    <section id="logika" class="section">
+      <h2 class="section-title reveal"><span class="num">09.</span> Logika &amp; Berpikir Kritis</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Logika</strong> berasal dari kata Yunani <em>logos</em> (akal, kata, keteraturan):
+            ilmu tentang <strong>kesahihan penalaran</strong> — bagaimana dari sejumlah pernyataan
+            (premis) kita boleh menarik kesimpulan. Logika tidak peduli apakah premisnya benar, tetapi
+            apabila premisnya benar dan bentuk penalarannya sah, kesimpulannya mustahil salah.
+            Dua bentuk paling klasik adalah <em>deduksi</em> (umum → khusus, pasti) dan
+            <em>induksi</em> (khusus → umum, berpeluang) milik Francis Bacon &amp; John Stuart Mill.
+          </p>
+          <p>
+            <strong>Berpikir kritis</strong> adalah sikap menilai informasi secara aktif: memeriksa
+            bukti, mengenali asumsi, menimbang alternatif, dan menarik kesimpulan yang bertanggung jawab.
+            Model Paul–Elder menyebut enam keterampilannya: <em>identifikasi</em> (menangkap inti
+            persoalan), <em>analisis</em> (mengurai hubungan), <em>evaluasi</em> (menguji bukti),
+            <em>inferensi</em> (menarik kesimpulan), <em>eksplanasi</em> (menyajikan), dan
+            <em>regulasi diri</em> (mengoreksi pemikiran sendiri).
+          </p>
+          <p>
+            Di era informasi, berpikir kritis adalah tameng utama melawan hoaks, manipulasi data, dan
+            bias kognitif. Aturan sederhananya: cari sumber kedua, tanyakan "bagaimana ia tahu?",
+            pisahkan fakta dari opini, dan bersedia mengubah pendapat saat bukti bertambah.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Deduksi</span><span class="v">Umum → khusus (pasti)</span></div>
+          <div class="fact"><span class="k">Induksi</span><span class="v">Khusus → umum (peluang)</span></div>
+          <div class="fact"><span class="k">Abduksi</span><span class="v">Penjelasan terbaik</span></div>
+          <div class="fact"><span class="k">Premis</span><span class="v">Dasar penalaran</span></div>
+          <div class="fact"><span class="k">Fallacy</span><span class="v">Kesalahan penalaran</span></div>
+          <div class="fact"><span class="k">Bias Kognitif</span><span class="v">Pemikiran sesat sistematis</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">⚠ Kesalahan Berpikir yang Sering Terjadi</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎯</div>
+          <h3>Straw Man</h3>
+          <p>Memutarbalikkan argumen lawan menjadi versi yang lebih lemah lalu menyerang versi palsu itu. Contoh: "Kita harus hemat energi" → "Jadi kamu melarang orang menyalakan lampu?" Padahal yang diminta adalah penghematan wajar.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🗣</div>
+          <h3>Ad Hominem</h3>
+          <p>Menyerang orangnya, bukan argumennya: "Dia bukan sarjana, jadi pasti salah." Kualifikasi penyerang tidak menentukan kebenaran data yang ia sampaikan — uji buktinya, bukan latarnya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">➡️</div>
+          <h3>Slippery Slope</h3>
+          <p>Menganggap satu langkah pasti berujung pada rangkaian bencana tanpa bukti kausalitas. "Jika anak boleh main game 1 jam, nanti ia akan putus sekolah." Tiap langkah perlu dibuktikan sendiri.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔲</div>
+          <h3>False Dichotomy</h3>
+          <p>Menyajikan hanya dua pilihan padahal masih ada opsi lain: "Mau ikut atau kamu pengecut?" Realitas hampir selalu bergradasi — carilah pilihan ketiga dan seterusnya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">👥</div>
+          <h3>Bandwagon</h3>
+          <p>Benar karena banyak yang percaya? Jumlah pembaca bukan bukti kebenaran — 1.000 orang bisa saja mengutip satu sumber yang sama dan keliru. Uji sumber primernya.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔁</div>
+          <h3>Circular Reasoning</h3>
+          <p>Kesimpulan dipakai sebagai premisnya sendiri: "Kitab ini benar karena isinya firman Tuhan, dan kita tahu itu firman Tuhan karena kitab ini benar." Penalaran harus punya titik awal yang independen.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎣</div>
+          <h3>Red Herring</h3>
+          <p>Menyelipkan topik tak relevan untuk mengalihkan perhatian dari isu inti — sering muncul dalam debat politik dan wawancara. Kembalikan pembicaraan ke pertanyaan awal.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📉</div>
+          <h3>Bias Kognitif</h3>
+          <p>Confirmation bias (hanya mencari yang mendukung), Dunning–Kruger (merasa paling tahu saat paling awam), dan anchoring (terpaku pada angka pertama). Kesadaran akan bias adalah langkah pertama menghindarinya.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🧠 Tokoh Logika &amp; Berpikir Kritis</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🏛</div>
+          <h3>Aristoteles (384–322 SM)</h3>
+          <p>Bapak logika formal: silogisme (dua premis → satu kesimpulan) dan kategori dasar berpikir. Selama 2.000 tahun Organon-nya menjadi rujukan mutlak logika di dunia Yunani, Islam, dan Eropa.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌾</div>
+          <h3>Francis Bacon (1561–1626)</h3>
+          <p>Pelopor metode induksi ilmiah dan "Idola Pikiran" — empat penghalang berpikir jujur: idola suku (bias kelompok), idola gua (pengalaman pribadi), idola pasar (bahasa menyesatkan), dan idola teater (dogma).</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💭</div>
+          <h3>René Descartes (1596–1650)</h3>
+          <p>Metode keraguan sistematis: ragukan semua yang bisa diragukan sampai menemukan kepastian "Cogito ergo sum". Ia menetapkan empat kaidah berpikir: terima yang jelas, pecah masalah, urutkan dari mudah ke sulit, dan hitung tanpa kekurangan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔢</div>
+          <h3>John Stuart Mill (1806–1873)</h3>
+          <p>Menyempurnakan induksi menjadi empat metode klasik: kesamaan (agreement), perbedaan (difference), kesamaan-perbedaan, dan variasi tersisa (residues) — kerangka penyebab dalam penelitian ilmiah.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧫</div>
+          <h3>Karl Popper (1902–1994)</h3>
+          <p>Falsifikasi: ilmu bukan yang "terbukti benar", melainkan yang <strong>bisa dibuktikan salah</strong> dan lolos dari upaya membantah. Teori yang kebal bantahan justru tidak ilmiah.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💡</div>
+          <h3>Edward de Bono (1933–2023)</h3>
+          <p>Bapak "berpikir lateral" (lateral thinking) dan Six Thinking Hats: memisahkan nalar, emosi, kreativitas, kritis, fakta, dan manajemen ke dalam enam topi agar diskusi tidak saling menyerang.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎲</div>
+          <h3>Daniel Kahneman (1934–2024)</h3>
+          <p>Nobel Ekonomi 2002: sistem 1 (cepat, otomatis, mudah tersesat) vs sistem 2 (lambat, logis, malas). Karyanya Thinking, Fast and Slow memetakan puluhan bias yang membuat manusia salah menilai risiko.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚖️</div>
+          <h3>Richard Paul &amp; Linda Elder</h3>
+          <p>Menyusun kerangka standar berpikir kritis global: elemen (tujuan, pertanyaan, informasi, konsep, asumsi, implikasi, perspektif) dan standar (kejelasan, akurasi, kedalaman, keluasan, logika, relevansi). Dasar pendidikan berpikir kritis di banyak negara.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 10. ASTRONOMI DI DUNIA & AMERIKA ============ -->
+    <section id="astronomi" class="section">
+      <h2 class="section-title reveal"><span class="num">10.</span> Astronomi di Dunia &amp; Amerika</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Astronomi adalah ilmu tertua manusia</strong>. Bangsa Babilonia mencatat gerak
+            planet di atas tanah liat sejak ±1800 SM; Tiongkok mencatat komet dan supernova (termasuk
+            "Bintang Tamu" 1054 yang kini menjadi Nebula Kepiting); bangsa Maya membangun observatorium
+            El Caracol; dan peradaban Islam menyempurnakan astrolab — <strong>Al-Battani</strong> memperbaiki
+            panjang tahun, <strong>Al-Sufi</strong> menulis Kitab Bintang-Bintang Tetap (termasuk Andromeda
+            pertama kali), <strong>Ibn Yunus</strong> memcat data hijrah yang dipakai astronom modern, dan
+            <strong>Ulugh Beg</strong> membangun daftar bintang terakurat zamannya di Samarkand.
+          </p>
+          <p>
+            Revolusi datang dari Eropa: <strong>Copernicus</strong> (1543) memusatkan Matahari,
+            <strong>Kepler</strong> menghitung orbit elips, <strong>Galileo</strong> mengarahkan teleskop
+            ke langit (1609), dan <strong>Newton</strong> menjelaskan semuanya dengan gravitasi.
+            Observatorium besar lahir di Abad ke-19 (Greenwich, Pulkovo, Lick, Yerkes) — dan astronomi
+            berubah dari seni mengamati menjadi ilmu pengukuran.
+          </p>
+          <p>
+            <strong>Amerika Serikat</strong> kemudian menjadi pusat astronomi dunia sejak awal abad ke-20:
+            observatorium gunung (Mount Wilson, Palomar), laboratorium fisika, lalu badan antariksa
+            <strong>NASA (1958)</strong> dan <strong>JPL</strong>. Hari ini AS memimpin lewat teleskop
+            luar angkasa (Hubble, Chandra, James Webb), jaringan radio raksasa, dan misi ke seluruh
+            Tata Surya — didukung Eropa, Tiongkok, Jepang, India, Rusia, dan negara-negara lain.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Observatorium Tertua</span><span class="v">Uraniborg / Samarkand</span></div>
+          <div class="fact"><span class="k">NASA berdiri</span><span class="v">29 Oktober 1958</span></div>
+          <div class="fact"><span class="k">Hubble diluncurkan</span><span class="v">24 April 1990</span></div>
+          <div class="fact"><span class="k">James Webb</span><span class="v">25 Desember 2021</span></div>
+          <div class="fact"><span class="k">Teleskop terbesar</span><span class="v">ELT (39 m) — ESO</span></div>
+          <div class="fact"><span class="k">Indonesia</span><span class="v">Observatorium Bosscha (1923)</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">🇺🇸 Astronomi di Amerika Serikat</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🚀</div>
+          <h3>NASA (1958–)</h3>
+          <p>Badan antariksa AS: misi berawak (Apollo, Space Shuttle, Artemis), teleskop luar angkasa (Hubble, Chandra, Fermi, JWST bersama ESA/CSA), serta penjelajah Mars. Basis utama: Washington D.C., dengan pusat di Houston, Cape Canaveral, dan Huntsville.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🛰</div>
+          <h3>JPL — Jet Propulsion Laboratory</h3>
+          <p>Laboratorium NASA di Pasadena, dikelola Caltech. Rumah bagi rover Mars (Sojourner, Spirit, Opportunity, Curiosity, Perseverance), misi ke Jupiter (Voyager, Galileo), New Horizons ke Pluto, dan jaringan Deep Space Network yang berkomunikasi dengan wahana jauh.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔭</div>
+          <h3>Observatorium Gunung</h3>
+          <p>Mount Wilson (tempat Hubble menemukan pengembangan semesta, 1929), Palomar 5 m, Lick, Yerkes, dan Lowell di Arizona/California. Puncak gunung memberi udara tenang sehingga gambar tidak "bergetar" — letak geografis AS dengan gurun kering sangat menguntungkan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌈</div>
+          <h3>Keck Observatory (Hawaii)</h3>
+          <p>Dua cermin segi-enam 10 m di Mauna Kea — sejak 1990-an menjadi standar teleskop optik besar berkat cermin segmen aktif. Dipakai menemukan bukti lubang hitam supermasif (Nobel Fisika 2020) dan mempelajari eksoplanet di sekitar bintang jauh.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📡</div>
+          <h3>Very Large Array (New Mexico)</h3>
+          <p>27 antena radio 25 m berbentuk huruf Y sepanjang 36 km. Memetakan struktur galaksi, jet lubang hitam, dan radiol interferometri lainnya; satu-satunya "mata" yang melihat gelombang radio — teknik dasar penghargaan Nobel 2017 (gambar lubang hitam M87).</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎓</div>
+          <h3>Kampus &amp; Lembaga</h3>
+          <p>Harvard-Smithsonian CfA (astronomi wanita pionir "Harvard Computers"), Caltech, MIT, University of Chicago (Chicago Pioneers), AAS (Asosiasi Astronom Amerika), dan STScI yang mengoperasikan teleskop Hubble &amp; James Webb.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🌍 Astronomi di Dunia</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇪🇺</div>
+          <h3>Eropa: ESO &amp; ESA</h3>
+          <p>ESO mengelola VLT (4×8,2 m) di Gurun Atacama, Chile, serta akan membangun ELT 39 m — teleskop optik terbesar di dunia. ESA mengoperasikan Gaia (peta 2 miliar bintang), Planck (CMB), Rosetta (komet), dan teleskop XMM-Newton.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇨🇳</div>
+          <h3>Tiongkok</h3>
+          <p>FAST — teleskop radio terbesar dunia (500 m) di Guizhou, mencari sinyal asing dan pulsar. Stasiun luar angkasa Tiangong (sejak 2021), misi Chang'e ke Bulan (termasuk sampel bulan), dan Tianwen-1 ke Mars.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇯🇵</div>
+          <h3>Jepang (JAXA)</h3>
+          <p>Teleskop Subaru 8,2 m di Mauna Kea; misi Hayabusa &amp; Hayabusa2 yang sukses mengambil sampel asteroid (Ryugu); Akatsuki ke Venus; dan misi bulan SLIM yang melakukan pendaratan presisi.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇮🇳</div>
+          <h3>India (ISRO)</h3>
+          <p>Chandrayaan-3 berhasil mendarat di kutub selatan Bulan (2023) — negara pertama yang melakukannya. Aditya-L1 mengamati Matahari dari titik L1, dan AstroSat adalah teleskop ruang angkasa multiban milik India.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇮🇩</div>
+          <h3>Indonesia</h3>
+          <p>Observatorium Bosscha (Lembang, 1923) milik ITB — tertua di Asia Tenggara; teleskop surya, pemetaan langit, dan penelitian bintang ganda. Ditambah Planetarium Jakarta, komunitas astronomi amator, serta pemantauan hujan meteor &amp; gerhana lintas Nusantara.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇷🇺</div>
+          <h3>Rusia &amp; Negara Lain</h3>
+          <p>Rusia: pionir era luar angkasa (Sputnik 1957, Gagarin 1961), teleskop radio BTA 6 m, misi Spektr-RG. Australia: Parkes 64 m &amp; perintis SKA. Kanada: James Webb berisi cermin primernya; Brasil, Korea Selatan, dan Arab Saudi punya observatorium serta misi sendiri.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 11. PERKEMBANGAN AI & TOKOHNYA ============ -->
+    <section id="ai" class="section">
+      <h2 class="section-title reveal"><span class="num">11.</span> Perkembangan AI &amp; Tokohnya</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Kecerdasan Buatan (AI)</strong> adalah sistem komputer yang belajar dari data untuk
+            mengenali pola, membuat prediksi, dan mengambil keputusan. Istilah ini lahir dari lokakarya
+            <strong>Dartmouth (1956)</strong> yang dipimpin John McCarthy. Perkembangannya penuh pasang
+            surut: kegembiraan di 1960-an, "musim dingin" dana di 1970-an dan 1980-an, kebangkitan mesin
+            belajar (machine learning) di 1990-an, lalu ledakan <em>deep learning</em> sejak 2012 ketika
+            jaringan saraf tiruan mengalahkan manusia dalam pengenalan gambar.
+          </p>
+          <p>
+            Titik balik modern adalah arsitektur <strong>Transformer (2017)</strong> yang melahirkan model
+            bahasa besar (LLM): GPT, Gemini, Claude, dan Llama. AI kini masuk ke kesehatan (baca citra
+            medis), iklim (prakiraan), transportasi (kendaraan otonom), sains (prediksi struktur protein
+            AlphaFold), seni (gambar, musik, video), hingga asisten belajar seperti kolom tanya jawab di
+            halaman ini.
+          </p>
+          <p>
+            Ke depan, perdebatan berpusat pada <strong>AGI</strong> (AI setara manusia di semua bidang),
+            keselamatan AI (alignment agar nilai AI selaras manusia), dampak pekerjaan, privasi, bias,
+            dan disinformasi. Beberapa tokoh menyerukan regulasi ketat, sebagian lain mengejar
+            percepatan — keseimbangan antara manfaat dan risiko inilah tugas besar generasi kita.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">1950</span><span class="v">Uji Turing ("Can machines think?")</span></div>
+          <div class="fact"><span class="k">1956</span><span class="v">Lokakarya Dartmouth</span></div>
+          <div class="fact"><span class="k">1997</span><span class="v">Deep Blue kalahkan Kasparov</span></div>
+          <div class="fact"><span class="k">2012</span><span class="v">AlexNet — era deep learning</span></div>
+          <div class="fact"><span class="k">2017</span><span class="v">Arsitektur Transformer</span></div>
+          <div class="fact"><span class="k">2022</span><span class="v">ChatGPT populer ke publik</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">🤖 Tokoh AI &amp; Kontribusinya</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎩</div>
+          <h3>Alan Turing (1912–1954)</h3>
+          <p>Bapak ilmu komputer teoretis: mesin Turing (1936) dan Uji Turing (1950) yang menanyakan "bisakah mesin berpikir?". Ia memecahkan kode Enigma dan meletakkan dasar kecerdasan buatan jauh sebelum komputer modern lahir.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧠</div>
+          <h3>Geoffrey Hinton ("Bapak Deep Learning")</h3>
+          <p>Profesor Toronto yang mempopulerkan backpropagation dan jaringan saraf dalam (2012 AlexNet). Nobel Fisika 2024 bersama Hopfield; sejak 2023 ia keluar dari Google untuk lebih bebas mengingatkan risiko AI jangka panjang.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🖼</div>
+          <h3>Yann LeCun</h3>
+          <p>Penemu CNN (convolutional neural network) yang menjadi tulang punggung pengenalan gambar, wajah, dan otonomi kendaraan. Chief AI Scientist Meta dan penganjur arsitektur world models/prediktif.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🇨🇦</div>
+          <h3>Yoshua Bengio</h3>
+          <p>Spesialis jaringan saraf mendalam untuk bahasa &amp; sekuens; pendiri Mila (Quebec). Bersama Hinton dan LeCun meraih Turing Award 2018, lalu aktif menyerukan moratorium &amp; tata kelola AI global.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎲</div>
+          <h3>Demis Hassabis</h3>
+          <p>CEO DeepMind (bagian Google): AlphaGo (2016) mengalahkan juara dunia Go, lalu AlphaFold menyelesaikan masalah 50 tahun prediksi struktur protein (Nobel Kimia 2024). Kini memimpin risiko dan penemuan berbantuan AI.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💬</div>
+          <h3>Sam Altman</h3>
+          <p>CEO OpenAI yang membawa GPT ke publik massal lewat ChatGPT (2022). Sebelumnya memimpin Y Combinator. Posisinya: AGI bisa tercapai dalam dekade ini dan perlu kemitraan regulasi bertahap.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🚀</div>
+          <h3>Elon Musk</h3>
+          <p>Pendiri xAI (model Grok) dan salah satu pelopor OpenAI (2015). Di Tesla ia membangun AI berkendara otonom (FSD, superkomputer Dojo); di SpaceX memakai AI untuk pendaratan roket. Sering bicara soal risiko "kecerdasan super" dan regulasi keselamatan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📷</div>
+          <h3>Fei-Fei Li</h3>
+          <p>Profesor Stanford pencipta ImageNet (2009) — dataset 14 juta gambar yang memicu era deep learning. Pelopor "Spatial Intelligence" dan co-director Stanford HAI yang menggabungkan AI dengan kemanusiaan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📚</div>
+          <h3>Andrew Ng</h3>
+          <p>Profesor Stanford, pendiri Google Brain dan co-founder Coursera; kursusnya "Machine Learning" membuka jalan bagi jutaan developer AI di dunia. Kini fokus pada AI untuk industri kecil dan pendidikan.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🔥</div>
+          <h3>Jensen Huang</h3>
+          <p>Pendiri NVIDIA — perusahaan yang kartu grafisnya (GPU) menjadi "otak" pelatihan AI modern. GPU memungkinkan ribuan kalkulasi paralel yang dibutuhkan jaringan saraf raksasa.</p>
+        </article>
+      </div>
+
+      <p class="sub-head reveal">🚀 Arah Perkembangan AI ke Depan</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌐</div>
+          <h3>AGI &amp; Model Multimodal</h3>
+          <p>AI yang bisa belajar banyak tugas seperti manusia, menggabungkan teks, gambar, suara, video, dan tindakan dalam satu model. Target besar OpenAI, Google DeepMind, Anthropic, dan xAI — dengan perdebatan sengit soal kapan dan apakah aman.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🦾</div>
+          <h3>Robotika &amp; AI Otonom</h3>
+          <p>Manusia robot (Tesla Optimus, Figure, Boston Dynamics) yang belajar dari data video; dron dan truk otonom; armada taksi tanpa sopir (Waymo). Kuncinya: kemampuan merasakan lingkungan dan membuat keputusan cepat yang aman.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🩺</div>
+          <h3>AI untuk Kesehatan</h3>
+          <p>Pembacaan rontgen &amp; MRI, deteksi dini kanker, peramalan epidemi, penemuan obat (protein &amp; molekul), dan asisten dokter meringankan beban administrasi — dengan syarat privasi pasien dan keputusan akhir tetap di tangan manusia.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌦</div>
+          <h3>AI untuk Iklim &amp; Energi</h3>
+          <p>Prakiraan cuaca ekstrem yang lebih akurat (GraphCast), optimasi jaringan listrik dan panel surya, pemantauan deforestasi dari citra satelit, serta riset material baru untuk baterai dan fusi nuklir.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🎓</div>
+          <h3>Pendidikan Personal</h3>
+          <p>Tutor yang menyesuaikan gaya belajar per murid, umpan balik menulis &amp; kode seketika, penerjemah bahasa, serta akses ilmu bagi daerah terpencil — asalkan tidak menggantikan proses berpikir mandiri siswa.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🛡</div>
+          <h3>Keamanan, Etika &amp; Regulasi</h3>
+          <p>Regulasi UE (AI Act), uji coba keselamatan model besar, watermark konten AI, anti-bias, dan riset alignment. Tantangan lain: pekerjaan yang bergeser, disinformasi deepfake, serta konsumsi energi pusat data yang terus naik.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 12. BAHASA PEMROGRAMAN ============ -->
+    <section id="bahasa" class="section">
+      <h2 class="section-title reveal"><span class="num">12.</span> Bahasa Pemrograman &amp; Penciptanya</h2>
+      <p class="section-hint reveal">
+        Ratusan bahasa pemrograman pernah dibuat — berikut <strong>48 bahasa paling berpengaruh</strong>
+        beserta pencipta, tahun, dan fungsinya. Semua baris ini juga bisa kamu cari lewat kotak
+        <a href="#cari">Pencarian</a>.
+      </p>
+      <div class="table-wrap reveal">
+        <table class="data-table" id="langTable">
+          <thead>
+            <tr><th>Bahasa</th><th>Pencipta</th><th>Tahun</th><th>Fungsi / Dipakai Untuk</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Bahasa"><strong>Assembly</strong></td><td>Pionir: EDSAC &amp; UNIVAC</td><td>1949</td><td>Setara bahasa mesin; driver, BIOS, kernel, dan kode yang butuh kecepatan maksimal.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Fortran</strong></td><td>John Backus (IBM)</td><td>1957</td><td>Komputasi ilmiah &amp; numerik; masih dipakai prakiraan cuaca, iklim, dan fisika nuklir.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Lisp</strong></td><td>John McCarthy</td><td>1958</td><td>Bahasa fungsional &amp; pemrosesan simbolik; klasik kecerdasan buatan.</td></tr>
+            <tr><td data-label="Bahasa"><strong>COBOL</strong></td><td>Grace Hopper &amp; komite CODASYL</td><td>1959</td><td>Perbankan, asuransi, dan laporan keuangan pemerintah — triliunan transaksi harian.</td></tr>
+            <tr><td data-label="Bahasa"><strong>ALGOL</strong></td><td>Komite ilmuwan internasional</td><td>1958</td><td>Bahasa algoritma; sintaksnya menjadi nenek moyang C, Pascal, Java, dan Python.</td></tr>
+            <tr><td data-label="Bahasa"><strong>BASIC</strong></td><td>John Kemeny &amp; Thomas Kurtz</td><td>1964</td><td>Bahasa pertama jutaan pelajar komputer; dasar microcomputer 1970-80an.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Pascal</strong></td><td>Niklaus Wirth</td><td>1970</td><td>Pendidikan struktur data &amp; program yang rapi, disiplin tipe yang ketat.</td></tr>
+            <tr><td data-label="Bahasa"><strong>C</strong></td><td>Dennis Ritchie (Bell Labs)</td><td>1972</td><td>Sistem operasi (Linux, Windows), firmware, database, dan aplikasi berkinerja tinggi.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Smalltalk</strong></td><td>Alan Kay, Dan Ingalls, Adele Goldberg</td><td>1972</td><td>Pelopor pemrograman berorientasi objek antarmuka grafis.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Prolog</strong></td><td>Alain Colmerauer &amp; Philippe Roussel</td><td>1972</td><td>Berpikir logis deklaratif; pemecahan masalah, expert system, tata bahasa.</td></tr>
+            <tr><td data-label="Bahasa"><strong>SQL</strong></td><td>Donald Chamberlin &amp; Raymond Boyce (IBM)</td><td>1974</td><td>Mengelola basis data relasional — jantung hampir semua aplikasi web &amp; bisnis.</td></tr>
+            <tr><td data-label="Bahasa"><strong>MATLAB</strong></td><td>Cleve Moler</td><td>1980</td><td>Komputasi matriks, sinyal, kendali, dan simulasi rekayasa di kampus &amp; industri.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Ada</strong></td><td>Jean Ichbiah (DoD AS)</td><td>1980</td><td>Sistem kritikal: avionik pesawat, pertahanan, kereta, dan satelit yang tak boleh gagal.</td></tr>
+            <tr><td data-label="Bahasa"><strong>ABAP</strong></td><td>IBM untuk SAP</td><td>1983</td><td>Basis data &amp; laporan ERP perusahaan besar (SAP R/3).</td></tr>
+            <tr><td data-label="Bahasa"><strong>Objective-C</strong></td><td>Brad Cox &amp; Tom Love</td><td>1984</td><td>Bahasa klasik iOS/macOS sebelum Swift.</td></tr>
+            <tr><td data-label="Bahasa"><strong>C++</strong></td><td>Bjarne Stroustrup (Bell Labs)</td><td>1985</td><td>Game, browser (Chrome), mesin grafis, sistem operasi, dan software berkinerja ekstrem.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Erlang</strong></td><td>Joe Armstrong (Ericsson)</td><td>1986</td><td>Telekomunikasi &amp; sistem tersebar yang tahan gagal (WhatsApp, switch telepon).</td></tr>
+            <tr><td data-label="Bahasa"><strong>Perl</strong></td><td>Larry Wall</td><td>1987</td><td>Administrasi sistem, pemrosesan teks massal, dan CGI web awal.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Verilog</strong></td><td>Gateway Design Automation</td><td>1984</td><td>Desain &amp; simulasi sirkuit digital sebelum dicetak ke chip.</td></tr>
+            <tr><td data-label="Bahasa"><strong>VHDL</strong></td><td>Departemen Pertahanan AS</td><td>1987</td><td>Desain perangkat keras (FPGA/ASIC), avionik, dan elektronika tertanam.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Bash</strong></td><td>Brian Fox (GNU)</td><td>1989</td><td>Skrip terminal Linux/macOS; otomasi server dan pengembangan perangkat lunak.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Python</strong></td><td>Guido van Rossum</td><td>1991</td><td>AI, sains data, web (Django/Flask), otomasi, dan scripting — sintaks paling ramah pemula.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Haskell</strong></td><td>Komite Haskell</td><td>1990</td><td>Fungsional murni, tipe sangat aman; kompiler, keuangan, riset.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Lua</strong></td><td>Roberto Ierusalimschy</td><td>1993</td><td>Skrip ringan di dalam aplikasi &amp; game (World of Warcraft, Roblox, Nginx).</td></tr>
+            <tr><td data-label="Bahasa"><strong>R</strong></td><td>Ross Ihaka &amp; Robert Gentleman</td><td>1993</td><td>Statistika, uji hipotesis, dan visualisasi data untuk riset &amp; kesehatan.</td></tr>
+            <tr><td data-label="Bahasa"><strong>PHP</strong></td><td>Rasmus Lerdorf</td><td>1995</td><td>Web dinamis — WordPress, Facebook awal, dan jutaan situs hosting bersama.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Java</strong></td><td>James Gosling (Sun Microsystems)</td><td>1995</td><td>Aplikasi lintas platform, Android lama, sistem perbankan, dan big data (Hadoop).</td></tr>
+            <tr><td data-label="Bahasa"><strong>JavaScript</strong></td><td>Brendan Eich (Netscape)</td><td>1995</td><td>Otak halaman web interaktif; kini juga server (Node.js), aplikasi, dan game.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Ruby</strong></td><td>Yukihiro Matsumoto</td><td>1995</td><td>Web cepat lewat framework Rails; dikenal sintaks yang indah dan produktif.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Delphi</strong></td><td>Anders Hejlsberg (Borland)</td><td>1995</td><td>Aplikasi Windows cepat dibuat dengan antarmuka visual.</td></tr>
+            <tr><td data-label="Bahasa"><strong>OCaml</strong></td><td>Pierre Weis &amp; Xavier Leroy (INRIA)</td><td>1996</td><td>Kompiler (Gallium), verifikasi program, dan keamanan sistem.</td></tr>
+            <tr><td data-label="Bahasa"><strong>C#</strong></td><td>Anders Hejlsberg (Microsoft)</td><td>2000</td><td>.NET, aplikasi Windows, web ASP.NET, dan game Unity 3D.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Groovy</strong></td><td>James Strachan</td><td>2003</td><td>Skrip di atas JVM; bahasa build Gradle dan pengujian otomatis.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Scala</strong></td><td>Martin Odersky</td><td>2004</td><td>JVM gaya fungsional+OO; populer untuk big data (Apache Spark).</td></tr>
+            <tr><td data-label="Bahasa"><strong>F#</strong></td><td>Don Syme (Microsoft)</td><td>2005</td><td>Fungsional di .NET; analisis data dan keuangan.</td></tr>
+            <tr><td data-label="Bahasa"><strong>PowerShell</strong></td><td>Jeffrey Snover (Microsoft)</td><td>2006</td><td>Otomasi admin Windows, server, dan infrastruktur jaringan.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Scratch</strong></td><td>Mitchel Resnick (MIT)</td><td>2007</td><td>Pemrograman visual blok untuk anak &amp; pemula — logika lewat permainan.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Clojure</strong></td><td>Rich Hickey</td><td>2007</td><td>Fungsional di JVM dengan data tak berubah; cocok untuk sistem paralel.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Nim</strong></td><td>Andreas Rumpf</td><td>2008</td><td>Bahasa sistem ringan dengan sintaks Python dan keluaran secepat C.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Go</strong></td><td>Rob Pike, Ken Thompson, Robert Griesemer (Google)</td><td>2009</td><td>Server, Docker, Kubernetes, dan layanan awan yang sederhana &amp; cepat.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Rust</strong></td><td>Graydon Hoare (Mozilla)</td><td>2010</td><td>Sistem aman memori tanpa "null pointer"; browser, kernel Linux, WASM, CLI.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Kotlin</strong></td><td>JetBrains</td><td>2010</td><td>Bahasa utama Android modern dan backend JVM yang lebih ringkas dari Java.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Dart</strong></td><td>Lars Bak &amp; Kasper Lund (Google)</td><td>2011</td><td>Framework Flutter — satu kode untuk aplikasi Android, iOS, web, desktop.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Elixir</strong></td><td>José Valim</td><td>2011</td><td>Aplikasi web realtime (Phoenix) di atas mesin Erlang yang tahan jutaan koneksi.</td></tr>
+            <tr><td data-label="Bahasa"><strong>TypeScript</strong></td><td>Anders Hejlsberg (Microsoft)</td><td>2012</td><td>JavaScript dengan tipe data statis; standar proyek web besar (VS Code, Angular).</td></tr>
+            <tr><td data-label="Bahasa"><strong>Julia</strong></td><td>Jeff Bezanson, Stefan Karpinski, dkk.</td><td>2012</td><td>Komputasi ilmiah secepat C dengan kemudahan Python; simulasi &amp; data.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Swift</strong></td><td>Chris Lattner (Apple)</td><td>2014</td><td>Bahasa resmi iOS, macOS, watchOS, dan visionOS.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Solidity</strong></td><td>Gavin Wood</td><td>2014</td><td>Kontrak pintar blockchain Ethereum, DeFi, dan NFT.</td></tr>
+            <tr><td data-label="Bahasa"><strong>Zig</strong></td><td>Andrew Kelley</td><td>2016</td><td>Pengganti C yang modern: tanpa sistem build tersembunyi, mudah cross-compile.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 13. PEMBUAT APLIKASI ============ -->
+    <section id="aplikasi" class="section">
+      <h2 class="section-title reveal"><span class="num">13.</span> Pembuat Aplikasi &amp; Manfaatnya</h2>
+      <p class="section-hint reveal">
+        Siapa di balik aplikasi yang kamu pakai tiap hari? Tabel berisi <strong>32 aplikasi</strong>
+        beserta penciptanya, tahun berdiri, fungsi, dan manfaatnya — lengkap &amp; bisa dicari.
+      </p>
+      <div class="table-wrap reveal">
+        <table class="data-table" id="appTable">
+          <thead>
+            <tr><th>Aplikasi</th><th>Pencipta / Perusahaan</th><th>Tahun</th><th>Fungsi &amp; Manfaat</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-label="Aplikasi"><strong>Google</strong></td><td>Larry Page &amp; Sergey Brin (Alphabet)</td><td>1998</td><td>Mesin pencari, Gmail, Maps, Drive, Android. Manfaat: informasi dunia bisa diakses hitungan detik.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Microsoft Windows</strong></td><td>Bill Gates &amp; Paul Allen</td><td>1975/1985</td><td>Sistem operasi PC &amp; Office; manfaat: produktivitas, edukasi, dan standar kerja kantor dunia.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Apple iPhone &amp; App Store</strong></td><td>Steve Jobs, Steve Wozniak, Ronald Wayne</td><td>1976/2008</td><td>Perangkat &amp; ekosistem aplikasi; manfaat: komputasi genggam dan ekonomi aplikasi miliaran pekerjaan.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>YouTube</strong></td><td>Chad Hurley, Steve Chen, Jawed Karim (Google)</td><td>2005</td><td>Platform video &amp; streaming; manfaat: edukasi gratis, hiburan, dan pendapatan kreator.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>TikTok</strong></td><td>Zhang Yiming — ByteDance</td><td>2016</td><td>Video pendek berbasis algoritma FYP; manfaat: kreativitas viral, belajar singkat, dan jualan via TikTok Shop.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Instagram</strong></td><td>Kevin Systrom &amp; Mike Krieger (Meta)</td><td>2010</td><td>Foto, Story, Reels; manfaat: portofolio visual, branding, dan pemasaran UMKM.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Facebook</strong></td><td>Mark Zuckerberg (Meta)</td><td>2004</td><td>Jaringan sosial; manfaat: mempertemukan komunitas, grup, dan marketplace lokal.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>WhatsApp</strong></td><td>Jan Koum &amp; Brian Acton (Meta)</td><td>2009</td><td>Pesan instan enkripsi ujung-ke-ujung; manfaat: komunikasi gratis lintas negara &amp; bisnis (WhatsApp Business).</td></tr>
+            <tr><td data-label="Aplikasi"><strong>X (Twitter)</strong></td><td>Jack Dorsey, Noah Glass, Evan Williams, Biz Stone</td><td>2006</td><td>Mikroblog 280 karakter; manfaat: berita cepat, diskusi publik, dan jangkauan langsung tokoh.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Telegram</strong></td><td>Pavel Durov</td><td>2013</td><td>Pesan, kanal, dan bot; manfaat: grup besar (200rb anggota), file 2GB, otomasi.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Snapchat</strong></td><td>Evan Spiegel, Bobby Murphy, Reggie Brown</td><td>2011</td><td>Pesan berstatus hilang &amp; filter AR; manfaat: ekspresi santai dan kamera kreatif.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Spotify</strong></td><td>Daniel Ek (Spotify AB)</td><td>2006</td><td>Streaming musik &amp; podcast; manfaat: 100 juta lagu legal, playlist personal, dan royalti kreator.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Netflix</strong></td><td>Reed Hastings &amp; Marc Randolph</td><td>1997</td><td>Streaming film &amp; serial; manfaat: tontonan on-demand dan produksi konten global.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Amazon</strong></td><td>Jeff Bezos</td><td>1994</td><td>Belanja daring + AWS (awan komputasi); manfaat: logistik cepat dan infrastruktur internet dunia.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Alibaba</strong></td><td>Jack Ma</td><td>1999</td><td>Taobao, Tmall, Alibaba Cloud; manfaat: pasar grosir global dan pembayaran digital.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>WeChat</strong></td><td>Zhang Xiaolong (Tencent)</td><td>2011</td><td>"Super app" pesan + pembayaran + layanan harian; manfaat: satu aplikasi untuk hidup digital.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>NVIDIA</strong></td><td>Jensen Huang, Chris Malachowsky, Curtis Priem</td><td>1993</td><td>GPU &amp; platform CUDA; manfaat: mesin grafis game dan otak pelatihan AI modern.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>OpenAI ChatGPT</strong></td><td>Sam Altman &amp; tim OpenAI</td><td>2015/2022</td><td>Asisten AI percakapan; manfaat: menulis, menerjemah, belajar, dan memprogram lebih cepat.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>PayPal</strong></td><td>Peter Thiel, Max Levchin, Luke Nosek</td><td>1998</td><td>Pembayaran daring; manfaat: transaksi aman lintas negara &amp; dasar dompet digital.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Uber</strong></td><td>Travis Kalanick &amp; Garrett Camp</td><td>2009</td><td>Transportasi on-demand; manfaat: mobilitas fleksibel dan penghasilan driver.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Grab</strong></td><td>Anthony Tan &amp; Tan Hooi Ling</td><td>2012</td><td>Ojek, taksi, makanan, pembayaran di Asia Tenggara; manfaat: konektivitas kota Asia.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Gojek &amp; GoPay</strong></td><td>Kevin Aluwi, Michael Wilander, Andrew Darmono</td><td>2010</td><td>Ojek digital, pesan antar, dan dompet digital; manfaat: ekonomi driver &amp; UMKM Indonesia.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Shopee</strong></td><td>Chris Feng — Sea Group</td><td>2015</td><td>Marketplace Asia Tenggara; manfaat: berjualan gratis ongkir &amp; promo harian.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Tokopedia</strong></td><td>William Tanuwijaya &amp; Leontinus Alpha Edison</td><td>2009</td><td>Marketplace Indonesia; manfaat: UMKM naik kelas ke pasar nasional.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>LinkedIn</strong></td><td>Reid Hoffman</td><td>2003</td><td>Jejaring profesional; manfaat: mencari kerja, rekrutmen, dan personal branding.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Discord</strong></td><td>Jason Citron &amp; Stan Vishnevskiy</td><td>2015</td><td>Komunitas suara &amp; teks; manfaat: koordinasi tim, kelas, dan server penggemar.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Twitch</strong></td><td>Justin Kan (Amazon)</td><td>2011</td><td>Siaran langsung game; manfaat: karier streamer dan komunitas esports.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Reddit</strong></td><td>Steve Huffman &amp; Alexis Ohanian</td><td>2005</td><td>Forum komunitas (subreddit); manfaat: diskusi mendalam dan tren internet dunia.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Pinterest</strong></td><td>Ben Silbermann, Paul Sciarra, Evan Sharp</td><td>2010</td><td>Papan inspirasi visual; manfaat: ide desain, resep, dekorasi, dan perencanaan proyek.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Canva</strong></td><td>Melanie Perkins, Cliff Obrecht, Cameron Adams</td><td>2013</td><td>Desain grafis drag-and-drop; manfaat: poster, presentasi, dan konten media sosial tanpa jago desain.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Zoom</strong></td><td>Eric Yuan</td><td>2011</td><td>Video konferensi; manfaat: rapat, kelas daring, dan wawancara jarak jauh.</td></tr>
+            <tr><td data-label="Aplikasi"><strong>Duolingo</strong></td><td>Luis von Ahn &amp; Severin Hacker</td><td>2011</td><td>Belajar bahasa bergamifikasi; manfaat: pendidikan gratis dan penyedia tes resmi.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 07. FILSAFAT ============ -->
+    <section id="filsafat" class="section">
+      <h2 class="section-title reveal"><span class="num">14.</span> Filsafat &amp; Tokohnya</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Filsafat</strong> berasal dari bahasa Yunani <em>philosophia</em> — gabungan
+            <em>philia</em> (cinta/ketertarikan) dan <em>sophia</em> (kebijaksanaan), secara harfiah
+            berarti <strong>"cinta akan kebijaksanaan"</strong>. Filsafat adalah usaha berpikir
+            kritis, sistematis, dan rasional tentang persoalan paling mendasar: keberadaan,
+            pengetahuan, nilai, dan makna hidup.
+          </p>
+          <p>
+            Berbeda dengan sains yang menjawab dengan eksperimen, filsafat menjawab dengan
+            <strong>argumentasi dan refleksi</strong>. Ia tidak menutup kemungkinan, melainkan
+            menguji asumsi: apa itu benar? apa itu baik? apa itu ada? Siapa saya? Pertanyaan-pertanyaan
+            inilah yang melahirkan ilmu, hukum, etika berteknologi, bahkan tujuan sains itu sendiri.
+          </p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span class="k">Metafisika</span><span class="v">Hakikat keberadaan</span></div>
+          <div class="fact"><span class="k">Epistemologi</span><span class="v">Hakikat pengetahuan</span></div>
+          <div class="fact"><span class="k">Etika</span><span class="v">Baik &amp; buruk</span></div>
+          <div class="fact"><span class="k">Logika</span><span class="v">Kesahihan penalaran</span></div>
+          <div class="fact"><span class="k">Estetika</span><span class="v">Kecantikan &amp; seni</span></div>
+          <div class="fact"><span class="k">Politik</span><span class="v">Kehidupan bersama</span></div>
+        </div>
+      </div>
+
+      <p class="sub-head reveal">🏛 Tokoh Filsafat &amp; Ajarannya</p>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">🧐</div>
+          <h3>Socrates (470–399 SM)</h3>
+          <p><strong>“Tahu bahwa saya tidak tahu.”</strong> Bapak filsafat Yunani yang mengajarkan lewat dialog dan pertanyaan (metode elenchus): menguji keyakinan orang hingga kejujuran berpikir tercapai. Tak menulis satu pun karya — ajarannya diwariskan muridnya, Plato.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🏛</div>
+          <h3>Plato (428–348 SM)</h3>
+          <p><strong>Teori Ide/Gagasan:</strong> dunia yang kita lihat hanya bayangan dari dunia ide yang abadi dan sempurna. Negara idealnya dipimpin filsuf — bijaksana, bukan ambisius. Guru Aristotle, murid Socrates.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌿</div>
+          <h3>Aristoteles (384–322 SM)</h3>
+          <p><strong>Realisme logika &amp; etika kebaikan:</strong> pengetahuan dimulai dari pengalaman indera; kebahagiaan adalah kegiatan jiwa menurut kebajikan (eudaimonia). Ahli logika, biologi, politik, dan estetika.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">💭</div>
+          <h3>René Descartes (1596–1650)</h3>
+          <p><strong>Keraguan metodis:</strong> meragukan semua yang bisa diragukan hingga menemukan satu kepastian — <em>“Cogito, ergo sum”</em> (Saya berpikir, maka saya ada). Bapak rasionalisme dan metode dubius modern.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚖</div>
+          <h3>Immanuel Kant (1724–1804)</h3>
+          <p><strong>Kategoris imperatif:</strong> bertindaklah hanya menurut aturan yang bisa kamu ingin berlaku untuk semua orang. Penalaran murni Kausalitas: ruang dan waktu adalah bentuk bawaan pikiran kita.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">⚡</div>
+          <h3>Friedrich Nietzsche (1844–1900)</h3>
+          <p><strong>“Tuhan telah mati”</strong> — krisis nilai di masa modern. Ia menawarkan übermensch (manusia unggul) dan kehendak kuasa sebagai dorongan penciptaan nilai baru setelah nilai lama runtuh.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">📖</div>
+          <h3>Ibnu Sina (980–1037)</h3>
+          <p><strong>Penalaran “Manusia Melayang”</strong> (bukti keabadian jiwa) dan sintesis filsafat Yunani–Islam. Dokter dan filsuf; Kitab Al-Canon menjadi rujukan medis Eropa berabad-abad.</p>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-icon">🌊</div>
+          <h3>Jean-Paul Sartre (1905–1980)</h3>
+          <p><strong>Eksistensialisme:</strong> “keberadaan mendahului esensi” — manusia lahir tanpa definisi, lalu memilih dan bertanggung jawab atas pilihannya. Kemerdekaan sekaligus kutukan manusia modern.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 15. PENCARIAN & REKOMENDASI ============ -->
+    <section id="cari" class="section">
+      <h2 class="section-title reveal"><span class="num">15.</span> Pencarian &amp; Rekomendasi</h2>
+      <p class="section-hint reveal">
+        Ketik apa pun — <strong>planet, bintang, galaksi, bahasa pemrograman, aplikasi, AI, filsafat</strong> —
+        hasilnya langsung muncul lengkap dengan sumber bagian halaman dan jawaban tanya-jawab.
+      </p>
+
+      <div class="search-panel reveal" id="searchPanel">
+        <div class="search-bar">
+          <span class="search-ico">🔍</span>
+          <input type="search" id="searchInput" placeholder="Cari di seluruh isi FiloCosmos… mis. Python, lubang hitam, TikTok" aria-label="Cari isi halaman" autocomplete="off" />
+          <kbd class="search-kbd">Enter</kbd>
+        </div>
+
+        <div class="search-stats" id="searchStats">Ketik untuk mulai mencari — tersedia <strong>250+ butir pengetahuan</strong>.</div>
+
+        <div class="search-block">
+          <p class="search-label">✨ Rekomendasi populer</p>
+          <div class="search-reco" id="searchReco"><!-- diisi search.js --></div>
+        </div>
+
+        <div class="search-block">
+          <p class="search-label">Hasil</p>
+          <div class="search-results" id="searchResults">
+            <div class="search-empty">Belum ada pencarian. Coba ketik <em>black hole</em>, <em>Rust</em>, atau <em>Elon Musk</em>.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 16. TANYA JAWAB ILMIAH (AI) ============ -->
+    <section id="tanya" class="section">
+      <h2 class="section-title reveal"><span class="num">16.</span> Tanya Jawab Ilmiah <span class="ai-badge">AI</span></h2>
+      <p class="section-hint reveal">Pilih pertanyaan di bawah atau ketik sendiri — jawaban dikirim seketika dengan animasi mengetik.</p>
+
+      <div class="qa-panel reveal" id="qaPanel">
+        <div class="qa-log" id="qaLog">
+          <div class="qa-msg bot">
+            <span class="qa-who">FiloCosmos AI</span>
+            Halo! Saya menjawab pertanyaan seputar <strong>planet, bintang, galaksi, ruang &amp; waktu, logika, astronomi, AI, bahasa pemrograman, aplikasi, sains, fisika, teknologi, dan filsafat</strong>. Pilih topik favoritmu 👇
+          </div>
+        </div>
+
+        <div class="qa-chips" id="qaChips"><!-- diisi oleh qa.js --></div>
+
+        <form class="qa-form" id="qaForm" autocomplete="off">
+          <input id="qaInput" type="text" placeholder="Ketik pertanyaan… mis. apa itu big bang" aria-label="Tulis pertanyaan" />
+          <button class="btn btn-primary" type="submit">Tanya ✦</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 17. CONTACT ============ -->
+    <section id="contact" class="section">
+      <h2 class="section-title reveal"><span class="num">17.</span> Contact</h2>
+      <div class="contact-wrap reveal">
+        <p class="contact-lead">Terbuka untuk kolaborasi proyek, konsultasi teknis, maupun diskusi<br />mengenai IT dan luar angkasa.</p>
+        <div class="contact-links">
+          <a class="contact-card" href="https://instagram.com/nickmalcom1" target="_blank" rel="noopener noreferrer">
+            <span class="c-icon">IG</span>
+            <span class="c-text"><strong>@nickmalcom1</strong><small>Instagram</small></span>
+          </a>
+          <a class="contact-card" href="https://tiktok.com/@nikmal128" target="_blank" rel="noopener noreferrer">
+            <span class="c-icon">TT</span>
+            <span class="c-text"><strong>@nikmal128</strong><small>TikTok</small></span>
+          </a>
+          <div class="contact-card static">
+            <span class="c-icon">FB</span>
+            <span class="c-text"><strong>Nickmal Hawkins</strong><small>Facebook Username</small></span>
+          </div>
+        </div>
+        <a href="https://instagram.com/nickmalcom1" target="_blank" rel="noopener noreferrer" class="btn btn-primary big">Hubungi via Instagram →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Nickmal Hawkings — <span class="accent">FiloCosmos</span></p>
+    <p class="muted">Dibuat dengan HTML, CSS, dan cahaya bintang.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="space.js"></script>
+  <script src="kb-extra.js"></script>
+  <script src="qa.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>
